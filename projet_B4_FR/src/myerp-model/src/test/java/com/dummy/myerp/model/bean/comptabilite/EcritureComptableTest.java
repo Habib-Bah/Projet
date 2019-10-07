@@ -1,6 +1,9 @@
 package com.dummy.myerp.model.bean.comptabilite;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Assert;
@@ -40,5 +43,66 @@ public class EcritureComptableTest {
         vEcriture.getListLigneEcriture().add(this.createLigne(2, "1", "2"));
         Assert.assertFalse(vEcriture.toString(), vEcriture.isEquilibree());
     }
+    
+    @Test
+	public void testgetTotalDebitEcritureCompta() {
+
+		CompteComptable compteComptable = new CompteComptable(1, "compte 4");
+
+		LigneEcritureComptable ligneEcriture = new LigneEcritureComptable();
+		ligneEcriture.setCompteComptable(compteComptable);
+
+		// Paramètre pour le teste
+		BigDecimal debit = new BigDecimal(72.27);
+		BigDecimal credit = new BigDecimal(9234.27);
+		BigDecimal debit2 = new BigDecimal(20.27);
+		BigDecimal credit2 = new BigDecimal(1000.00);
+		LigneEcritureComptable ligneEC1 = new LigneEcritureComptable(compteComptable, compteComptable.getLibelle(),
+				debit, credit);
+		LigneEcritureComptable ligneEC2 = new LigneEcritureComptable(compteComptable, compteComptable.getLibelle(),
+				debit2, credit2);
+
+		// Methode A tester
+		EcritureComptable ecritureCompta = new EcritureComptable();
+		List<LigneEcritureComptable> liste = ecritureCompta.getListLigneEcriture();
+		liste.add(ligneEC1);
+		liste.add(ligneEC2);
+
+		BigDecimal result = debit.add(debit2);
+		BigDecimal res = ecritureCompta.getTotalDebit();
+
+		assertEquals(result, res);
+	}
+	
+	@Test
+	public void testgetTotalCreditEcritureCompta() {
+
+		CompteComptable compteComptable = new CompteComptable(2, "compte 5");
+
+		LigneEcritureComptable ligneEcriture = new LigneEcritureComptable();
+		ligneEcriture.setCompteComptable(compteComptable);
+
+		// Paramètre pour le teste
+		BigDecimal debit = new BigDecimal(72.27);
+		BigDecimal credit = new BigDecimal(36.10);
+		BigDecimal debit2 = new BigDecimal(20.27);
+		BigDecimal credit2 = new BigDecimal(70.10);
+		LigneEcritureComptable ligneEC1 = new LigneEcritureComptable(compteComptable, compteComptable.getLibelle(),
+				debit, credit);
+		LigneEcritureComptable ligneEC2 = new LigneEcritureComptable(compteComptable, compteComptable.getLibelle(),
+				debit2, credit2);
+
+		// Methode A tester
+		EcritureComptable ecritureCompta = new EcritureComptable();
+		List<LigneEcritureComptable> liste = ecritureCompta.getListLigneEcriture();
+		liste.add(ligneEC1);
+		liste.add(ligneEC2);
+
+		BigDecimal result = credit.add(credit2);
+		BigDecimal res = ecritureCompta.getTotalCredit();
+
+		assertEquals(result, res);
+	}
+
 
 }
