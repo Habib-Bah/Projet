@@ -2,12 +2,3 @@ language: java
 
 jdk:
   - oraclejdk9
-
-sudo: required
-
-after_success:
-  - mvn --file pom.xml cobertura:cobertura -P test-consumer,test-business
-  - bash <(curl -s https://codecov.io/bash)
-
-notifications:
-  email: false
