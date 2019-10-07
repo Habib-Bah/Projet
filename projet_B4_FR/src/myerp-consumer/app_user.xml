@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<app_user id='2' email='email1' enabled='1' encryted_password='11111' role='ROLE_USER' user_name='test1' />
+	<livre id='29' auteur="aut" titre="titT" nombredepages='100' nombreexemplaire='50' />
+
+</dataset>
