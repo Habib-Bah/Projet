@@ -7,7 +7,6 @@ sudo: required
 
 script:
   - mvn test -Ptest-consumer,test-business
-  - cd ../../src
-
+  
 notifications:
   email: false
