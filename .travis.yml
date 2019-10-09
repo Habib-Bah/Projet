@@ -1,0 +1,20 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+sudo: required
+
+before_script:
+  - cd ../../src
+
+script:
+  - mvn test -Ptest-consumer,test-business
+  - cd ../../src
+
+after_success:
+  - mvn --file pom.xml cobertura:cobertura -P test-consumer,test-business
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email: false
