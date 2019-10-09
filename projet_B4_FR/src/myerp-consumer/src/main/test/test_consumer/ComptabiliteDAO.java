@@ -12,12 +12,14 @@ import java.util.List;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 
 public class ComptabiliteDAO {
 
 	List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
 	List<JournalComptable> listeJournalComptable = new ArrayList<>();
 	List<CompteComptable> listeCompteComptable = new ArrayList<>();
+	List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
 
 	Connection connection;
 	Statement statement;
@@ -84,7 +86,7 @@ public class ComptabiliteDAO {
 
 			String sql = "insert into ecriture_comptable (journal_code, reference, date, libelle) values ( '"
 					+ journal_code + "', '" + reference + "' ,'" + date + "', '" + libelle + "')";
-			result = statement.executeQuery(sql);
+			statement.executeQuery(sql);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,5 +173,62 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 
 		return listeCompteComptable;
 	}
+	
+	public List<SequenceEcritureComptable> getListeSEComptable() throws IOException {
+		
+		try {
 
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from sequence_ecriture_comptable");
+
+			while (result.next()) {
+
+				SequenceEcritureComptable cp = new SequenceEcritureComptable();
+
+				String journal_code = result.getString(1);
+				int annee = result.getInt(2);
+				int derniere_valeur = result.getInt(3);
+				
+				cp.setAnnee(annee);
+				cp.setDerniereValeur(derniere_valeur);
+				cp.setJournal_code(journal_code);
+				
+
+				listeSequenceEComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listeSequenceEComptable;
+		
+	}
+	
+	public void insertSequenceEC(SequenceEcritureComptable sequence) throws IOException{
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+
+			statement = connection.createStatement();
+
+			String journal_code = sequence.getJournal_code();
+			int annee = sequence.getAnnee();
+			int derniere_valeur = sequence.getDerniereValeur();
+
+			String sql = "insert into sequence_ecriture_comptable (journal_code, annee, derniere_valeur, ) values ( '"
+					+ journal_code + "', '" + annee + "', '" + derniere_valeur + "')";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

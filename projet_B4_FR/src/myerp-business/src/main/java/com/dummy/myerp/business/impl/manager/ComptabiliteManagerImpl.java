@@ -1,5 +1,6 @@
 package com.dummy.myerp.business.impl.manager;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -14,12 +15,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.TransactionStatus;
 import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.business.impl.AbstractBusinessManager;
+import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
+
+import test_consumer.ComptabiliteDAO;
 
 
 /**
@@ -77,6 +82,37 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 4.  Enregistrer (insert/update) la valeur de la séquence en persitance
                     (table sequence_ecriture_comptable)
          */
+    	
+    	/*
+    	ComptabiliteDAO dao = new ComptabiliteDAO();
+    	int dernière_valeur = 0;
+    	
+    	try {
+			List<SequenceEcritureComptable> listeSequence = dao.getListeSEComptable();
+			
+			for(SequenceEcritureComptable se : listeSequence) {
+				if(se.getJournal_code().equalsIgnoreCase(pEcritureComptable.getJournal().getCode())) {
+					
+					 dernière_valeur = se.getDerniereValeur() + 1;
+					
+				}
+			}
+			
+			SequenceEcritureComptable sequence = new SequenceEcritureComptable();
+			sequence.setJournal_code(pEcritureComptable.getJournal().getCode());
+			sequence.setAnnee(pEcritureComptable.getDate().getYear());
+			sequence.setDerniereValeur(dernière_valeur);
+			dao.insertSequenceEC(sequence);
+			
+			String reference = sequence.getJournal_code() + "-" + sequence.getAnnee() + "/" +"00001";
+			pEcritureComptable.setReference(reference);
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		*/
     }
 
     /**

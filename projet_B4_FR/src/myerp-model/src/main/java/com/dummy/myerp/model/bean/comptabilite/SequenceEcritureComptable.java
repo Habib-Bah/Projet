@@ -21,6 +21,8 @@ public class SequenceEcritureComptable implements Serializable{
     private Integer annee;
     /** La dernière valeur utilisée */
     private Integer derniereValeur;
+    /** Journal code**/
+    private String journal_code;
 
     // ==================== Constructeurs ====================
     /**
@@ -35,9 +37,10 @@ public class SequenceEcritureComptable implements Serializable{
      * @param pAnnee -
      * @param pDerniereValeur -
      */
-    public SequenceEcritureComptable(Integer pAnnee, Integer pDerniereValeur) {
+    public SequenceEcritureComptable(String journal_code,Integer pAnnee, Integer pDerniereValeur) {
         annee = pAnnee;
         derniereValeur = pDerniereValeur;
+        this.journal_code = journal_code;
     }
 
 
@@ -54,9 +57,16 @@ public class SequenceEcritureComptable implements Serializable{
     public void setDerniereValeur(Integer pDerniereValeur) {
         derniereValeur = pDerniereValeur;
     }
+    
+    public String getJournal_code() {
+		return journal_code;
+	}
 
+	public void setJournal_code(String journal_code) {
+		this.journal_code = journal_code;
+	}
 
-    // ==================== Méthodes ====================
+	// ==================== Méthodes ====================
     @Override
     public String toString() {
         final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());

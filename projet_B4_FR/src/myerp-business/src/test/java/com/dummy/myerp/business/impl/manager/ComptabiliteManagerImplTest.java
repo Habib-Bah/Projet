@@ -1,19 +1,27 @@
 package com.dummy.myerp.business.impl.manager;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
+
+import test_consumer.ComptabiliteDAO;
 
 
 public class ComptabiliteManagerImplTest {
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+    ComptabiliteDAO bib = new ComptabiliteDAO();
 
 
     @Test
@@ -103,5 +111,5 @@ public class ComptabiliteManagerImplTest {
 
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
-
+	
 }

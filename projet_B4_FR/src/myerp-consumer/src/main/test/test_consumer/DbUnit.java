@@ -15,6 +15,7 @@ import org.junit.Test;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 
 
 public class DbUnit extends DBTestCase {
@@ -126,6 +127,19 @@ ComptabiliteDAO bib = new ComptabiliteDAO();
 		
 		int nombreEntite = 7;
 		int tailleListe = listeCompteC.size();
+		
+		
+		
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	@Test
+	public void testGetSEComptable() throws IOException {
+		
+		List<SequenceEcritureComptable> listeSEC = bib.getListeSEComptable();
+		
+		int nombreEntite = 4;
+		int tailleListe = listeSEC.size();
 		
 		
 		
