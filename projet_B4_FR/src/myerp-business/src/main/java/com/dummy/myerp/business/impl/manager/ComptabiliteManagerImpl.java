@@ -1,6 +1,9 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -134,6 +137,46 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
         // TODO ===== RG_Compta_5 : Format et contenu de la référence
         // vérifier que l'année dans la référence correspond bien à la date de l'écriture, idem pour le code journal...
+     // Formatage de la date de l'ecriture
+     		String pattern = "dd/MM/yyyy";
+     		DateFormat df = new SimpleDateFormat(pattern);
+     		Date today = pEcritureComptable.getDate();
+     		String dated = df.format(today);
+
+     		// Recuperation de l'année d'ecriture
+     		String dateRes[] = dated.split("/");
+     		String Dateres = dateRes[2];
+
+     		// Controle de l'ecriture comptable
+
+     		// checkEcritureComptable(pEcritureComptable);
+
+     		// Recuperation de la date de reference
+     		String ref = pEcritureComptable.getReference();
+     		
+
+     		if (((ref == null) || ref.equals("") || ref.equals(" "))) {
+     			addReference(pEcritureComptable);
+     		}
+
+     		else {
+
+     			String[] reff = ref.split("/");
+     			String resReff1 = reff[0];
+     			String refDate[] = resReff1.split("-");
+     			String date1 = refDate[1];
+     			String jour = refDate[0];
+     			String jour1 = pEcritureComptable.getJournal().getCode();
+
+     			if (!date1.equalsIgnoreCase(Dateres)) {
+     				throw new FunctionalException("L'année dans la référence ne correspond pas à la date de l'écriture.");
+     			}
+     			if (!jour1.equalsIgnoreCase(jour)) {
+     				throw new FunctionalException("Le code journal ne correspond pas");
+     			}
+     		}
+
+     	
     }
 
 
