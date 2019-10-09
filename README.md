@@ -1,2 +1,2 @@
 # Projet
- Developpement, Test
+ Developpement, Test.
