@@ -5,9 +5,6 @@ jdk:
 
 sudo: required
 
-before_script:
-  - cd ../../Projet/projet_B4_FR/src/
-
 script:
   - mvn test -Ptest-consumer,test-business
   - cd ../../src
