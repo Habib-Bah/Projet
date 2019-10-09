@@ -5,6 +5,9 @@ jdk:
 
 sudo: required
 
+before_script:
+  - cd ../../src
+
 script:
   - mvn test -Ptest-consumer,test-business
   
