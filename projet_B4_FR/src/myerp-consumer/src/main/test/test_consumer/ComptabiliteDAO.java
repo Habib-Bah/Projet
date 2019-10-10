@@ -20,6 +20,7 @@ public class ComptabiliteDAO {
 	List<JournalComptable> listeJournalComptable = new ArrayList<>();
 	List<CompteComptable> listeCompteComptable = new ArrayList<>();
 	List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
+	//private final String jdbcURL = "jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp";
 
 	Connection connection;
 	Statement statement;
@@ -40,10 +41,10 @@ public class ComptabiliteDAO {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
-			result = statement.executeQuery("select * from ecriture_comptable");
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
 
 			while (result.next()) {
 
@@ -75,7 +76,7 @@ public class ComptabiliteDAO {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
 
@@ -84,7 +85,7 @@ public class ComptabiliteDAO {
 			Date date = ecritureComptable.getDate();
 			String libelle = ecritureComptable.getLibelle();
 
-			String sql = "insert into ecriture_comptable (journal_code, reference, date, libelle) values ( '"
+			String sql = "insert into MYERP.ecriture_comptable (journal_code, reference, date, libelle) values ( '"
 					+ journal_code + "', '" + reference + "' ,'" + date + "', '" + libelle + "')";
 			statement.executeQuery(sql);
 
@@ -99,11 +100,11 @@ public class ComptabiliteDAO {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
 			
-			String sql = "delete from ecriture_comptable where id = '" + id + "'";
+			String sql = "delete from MYERP.ecriture_comptable where id = '" + id + "'";
 			statement.executeQuery(sql);	
 
 		} catch (Exception e) {
@@ -117,10 +118,10 @@ public class ComptabiliteDAO {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
-			result = statement.executeQuery("select * from journal_comptable");
+			result = statement.executeQuery("select * from MYERP.journal_comptable");
 
 			while (result.next()) {
 
@@ -148,10 +149,10 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
-			result = statement.executeQuery("select * from compte_comptable");
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
 
 			while (result.next()) {
 
@@ -179,10 +180,10 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
-			result = statement.executeQuery("select * from sequence_ecriture_comptable");
+			result = statement.executeQuery("select * from MYERP.sequence_ecriture_comptable");
 
 			while (result.next()) {
 
@@ -214,7 +215,7 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/bibliotheque");
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
 
 			statement = connection.createStatement();
 
@@ -222,7 +223,7 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 			int annee = sequence.getAnnee();
 			int derniere_valeur = sequence.getDerniereValeur();
 
-			String sql = "insert into sequence_ecriture_comptable (journal_code, annee, derniere_valeur, ) values ( '"
+			String sql = "insert into MYERP.sequence_ecriture_comptable (journal_code, annee, derniere_valeur) values ( '"
 					+ journal_code + "', '" + annee + "', '" + derniere_valeur + "')";
 			statement.executeQuery(sql);
 
@@ -231,4 +232,5 @@ public List<CompteComptable> getListeJCompteComptable() throws IOException {
 		}
 
 	}
+	
 }

@@ -23,9 +23,9 @@ public class DbUnit extends DBTestCase {
 	public DbUnit(String name) {
 		super(name);
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "org.postgresql.Driver");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:postgresql://localhost:5432/bibliotheque");
-	//	System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root");
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:postgresql://127.0.0.1:9032/db_myerp");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "usr_myerp");
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "myerp");
 	}
 
 	protected IDataSet getDataSet() throws Exception {
@@ -77,7 +77,7 @@ ComptabiliteDAO bib = new ComptabiliteDAO();
 		
 		List<EcritureComptable> listeEcriture = bib.getListeEcritureComptable();
 		
-		int nombreEntite = 9;
+		int nombreEntite = 5;
 		int tailleListe = listeEcriture.size();
 		
 		

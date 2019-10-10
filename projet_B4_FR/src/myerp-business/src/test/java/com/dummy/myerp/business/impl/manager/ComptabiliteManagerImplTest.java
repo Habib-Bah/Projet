@@ -1,6 +1,6 @@
 package com.dummy.myerp.business.impl.manager;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
+
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
@@ -15,13 +16,12 @@ import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 
-import test_consumer.ComptabiliteDAO;
 
 
 public class ComptabiliteManagerImplTest {
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
-    ComptabiliteDAO bib = new ComptabiliteDAO();
+    
 
 
     @Test
@@ -112,4 +112,69 @@ public class ComptabiliteManagerImplTest {
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
 	
+	
+	@Test
+	public void testGetListeEcriture() throws IOException {
+		
+		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
+		
+		int nombreEntite = 5;
+		int tailleListe = listeEcriture.size();
+		
+		
+		
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	@Test
+	public void testGetListeJournal() throws IOException {
+		
+		List<JournalComptable> listeJournal = manager.getListJournalComptable();
+		
+		int nombreEntite = 4;
+		int tailleListe = listeJournal.size();
+		
+		
+		
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	@Test
+	public void testGetCompteComptable() throws IOException {
+		
+		List<CompteComptable> listeCompteC = manager.getListCompteComptable();
+		
+		int nombreEntite = 7;
+		int tailleListe = listeCompteC.size();
+		
+		
+		
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	
+	/*
+	@Test
+	public void testInsert() throws IOException, FunctionalException {
+			
+		EcritureComptable ecriture = new EcritureComptable();
+		ecriture.setJournal_code("TI");
+		ecriture.setReference("TI-2019/00001");
+		ecriture.setDate(new Date());
+		ecriture.setLibelle("Test insert");
+		
+		manager.insertEcritureComptable(ecriture);
+		
+		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
+		boolean res = false;
+		
+		for(EcritureComptable ec : listeEcriture) {
+			
+			if(ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
+	}
+	*/
 }

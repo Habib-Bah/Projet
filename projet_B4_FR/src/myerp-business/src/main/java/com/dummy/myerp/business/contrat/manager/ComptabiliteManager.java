@@ -5,6 +5,7 @@ import java.util.List;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 
 
@@ -19,6 +20,14 @@ public interface ComptabiliteManager {
      * @return {@link List}
      */
     List<CompteComptable> getListCompteComptable();
+    
+    /**
+     * Renvoie la liste des comptes comptables.
+     *
+     * @return {@link List}
+     */
+    List<SequenceEcritureComptable> getListSequenceEComptable();
+
 
 
     /**
@@ -35,6 +44,13 @@ public interface ComptabiliteManager {
      * @return {@link List}
      */
     List<EcritureComptable> getListEcritureComptable();
+    
+    /**
+     * Renvoie la liste des sequences comptables.
+     *
+     * @return {@link List}
+     */
+  //  List<SequenceEcritureComptable> getListSequenceEcritureComptable();
 
     /**
      * Ajoute une référence à l'écriture comptable.
@@ -69,17 +85,20 @@ public interface ComptabiliteManager {
     void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException;
 
     /**
-     * Met à jour l'écriture comptable.
+     * insert une nouvelle sequence ecriture comptable.
      *
      * @param pEcritureComptable -
      * @throws FunctionalException Si l'Ecriture comptable ne respecte pas les règles de gestion
      */
-    void updateEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException;
+    void insertSEcritureComptable(SequenceEcritureComptable pEcritureComptable) throws FunctionalException;
 
     /**
      * Supprime l'écriture comptable d'id {@code pId}.
      *
      * @param pId l'id de l'écriture
      */
+   
+    
     void deleteEcritureComptable(Integer pId);
+    
 }
