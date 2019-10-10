@@ -5,7 +5,7 @@ jdk:
 sudo: required
 
 before_script:
- - /home/travis/build/Habib-Bah/Projet/projet_B4_FR/src
+ -  cd projet_B4_FR/
  
 script:
   - mvn test -Ptest-consumer,test-business
