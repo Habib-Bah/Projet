@@ -152,6 +152,20 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 	
+	@Test
+	public void testGetSEComptable() throws IOException {
+		
+		List<SequenceEcritureComptable> listeSEC = manager.getListSequenceEcritureComptable();
+		
+		int nombreEntite = 4;
+		int tailleListe = listeSEC.size();
+		
+		
+		
+		assertEquals(nombreEntite, tailleListe);
+	}
+
+	
 	
 	/*
 	@Test

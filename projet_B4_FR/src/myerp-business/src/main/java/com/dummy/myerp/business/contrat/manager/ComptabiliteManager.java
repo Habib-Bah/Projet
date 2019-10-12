@@ -21,14 +21,6 @@ public interface ComptabiliteManager {
      */
     List<CompteComptable> getListCompteComptable();
     
-    /**
-     * Renvoie la liste des comptes comptables.
-     *
-     * @return {@link List}
-     */
-    List<SequenceEcritureComptable> getListSequenceEComptable();
-
-
 
     /**
      * Renvoie la liste des journaux comptables.
@@ -50,7 +42,7 @@ public interface ComptabiliteManager {
      *
      * @return {@link List}
      */
-  //  List<SequenceEcritureComptable> getListSequenceEcritureComptable();
+    List<SequenceEcritureComptable> getListSequenceEcritureComptable();
 
     /**
      * Ajoute une référence à l'écriture comptable.

@@ -30,7 +30,6 @@ import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 
-import test_consumer.ComptabiliteDAO;
 
 /**
  * Comptabilite manager implementation.
@@ -59,6 +58,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	@Override
 	public List<CompteComptable> getListCompteComptable() {
 
+		
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -86,11 +86,16 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 
 		return listeCompteComptable;
+		
+		
+		
 
 	}
+	
+	
 
 	@Override
-	public List<SequenceEcritureComptable> getListSequenceEComptable() {
+	public List<SequenceEcritureComptable> getListSequenceEcritureComptable() {
 
 		try {
 
@@ -123,6 +128,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		return listeSequenceEComptable;
 
 	}
+	
+	
 
 	@Override
 	public List<JournalComptable> getListJournalComptable() {
@@ -212,6 +219,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		 * la séquence en persitance (table sequence_ecriture_comptable)
 		 */
 
+		
+		/*
 		int dernière_valeur = 0;
 
 		try {
@@ -248,7 +257,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			e.printStackTrace();
 
 		}
-
+		
+		*/
 	}
 
 	/**
@@ -381,6 +391,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	@Override
 	public void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException {
 
+	/*	
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -388,7 +399,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 			statement = connection.createStatement();
 
-			String journal_code = pEcritureComptable.getJournal_code();
+			String journal_code = pEcritureComptable.getJournal().getCode();
 			String reference = pEcritureComptable.getReference();
 			Date date = pEcritureComptable.getDate();
 			String libelle = pEcritureComptable.getLibelle();
@@ -400,7 +411,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
+		*/
 	}
 
 	/**
