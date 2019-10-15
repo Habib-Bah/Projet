@@ -220,11 +220,11 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		 */
 
 		
-		/*
+		
 		int dernière_valeur = 0;
 
 		try {
-			List<SequenceEcritureComptable> listeSequence = getListSequenceEComptable();
+			List<SequenceEcritureComptable> listeSequence = getListSequenceEcritureComptable();
 			SequenceEcritureComptable sequence = new SequenceEcritureComptable();
 
 			for (SequenceEcritureComptable se : listeSequence) {
@@ -258,7 +258,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 		}
 		
-		*/
+		
 	}
 
 	/**
