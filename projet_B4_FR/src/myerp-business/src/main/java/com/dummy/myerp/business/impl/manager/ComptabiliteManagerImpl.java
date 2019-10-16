@@ -249,7 +249,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 				}
 
-				// insertSEcritureComptable(sequence);
+				 //insertSEcritureComptable(sequence);
 			}
 
 		} catch (Exception e) {
