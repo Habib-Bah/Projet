@@ -79,18 +79,21 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
+<!--  
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>RELEASE</version>
 		</dependency>
-
+-->
 		<!-- Hibernate 5.2.9 Final -->
+	 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>RELEASE</version>
+			<version>5.4.6.Final</version>
 		</dependency>
+	
 	</dependencies>
 
 
