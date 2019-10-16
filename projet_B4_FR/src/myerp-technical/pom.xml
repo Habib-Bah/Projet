@@ -122,12 +122,6 @@
 	</dependencies>
 
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>apache.snapshots</id>
-			<url>http://repository.apache.org/snapshots/</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<!-- =============================================================== -->
 	<!-- Build -->
@@ -141,11 +135,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 			</plugin>
-
+			
 			<plugin>
-				<artifactId>some_maven_plugin</artifactId>
-				<version>1.4</version>
-			</plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.0</version>
+                </plugin>
+
 		</plugins>
 
 	</build>
