@@ -9,7 +9,7 @@ services:
   - docker
 
 before_install:
-  - cd docker/dev
+  - cd projet_B4_FR/docker/dev/
   - docker-compose up -d
   - docker ps -a
 
@@ -18,12 +18,12 @@ before_script:
 
 script:
   - mvn test -Ptest-consumer,test-business
-  - cd ../docker/dev
+  - cd projet_B4_FR/docker/dev/
   - docker-compose stop
   - docker-compose rm -f
   - docker-compose up -d
   - docker ps -a
-  - cd ../../src
+  - cd projet_B4_FR/src/
 
 after_success:
   - mvn --file pom.xml cobertura:cobertura -P test-consumer,test-business
