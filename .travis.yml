@@ -11,5 +11,6 @@ jobs:
       jdk: openjdk8
       script:  - mvn test -Ptest-consumer,test-business
  
+ 
 notifications:
   email: false
