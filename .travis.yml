@@ -1,0 +1,16 @@
+language: java
+jdk: openjdk8
+
+sudo: required
+
+before_script:
+ -  cd projet_B4_FR/src/
+
+jobs:
+  include:
+    - stage: test
+      jdk: openjdk8
+      script:  - mvn test -Ptest-consumer,test-business
+  
+notifications:
+  email: false
