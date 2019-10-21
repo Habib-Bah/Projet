@@ -3,6 +3,7 @@ package com.dummy.myerp.model.bean.comptabilite;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -373,5 +374,27 @@ public class EcritureComptableTest {
 		assertEquals("TTI", code);
 	}
 	
+	@Test
+	public void testEcritureCGetSetId() {
+		
+		EcritureComptable ecriture = new EcritureComptable("TT", "RF-2019/00001", new Date(), "Test");
+		ecriture.setId(1);
+		int id = ecriture.getId();
+		assertEquals(1, id);
+	}
 
+	@Test
+	public void testListeEC() {
+		
+		List<EcritureComptable> liste = new ArrayList<>();
+		
+		EcritureComptable ecriture1 = new EcritureComptable("TT1", "RF-2019/00001", new Date(), "Test1");
+		EcritureComptable ecriture2 = new EcritureComptable("TT2", "RF-2019/00002", new Date(), "Test2");
+		
+		liste.add(ecriture1);
+		liste.add(ecriture2);
+		int taille = liste.size();
+		
+		assertEquals(2, taille);
+	}
 }

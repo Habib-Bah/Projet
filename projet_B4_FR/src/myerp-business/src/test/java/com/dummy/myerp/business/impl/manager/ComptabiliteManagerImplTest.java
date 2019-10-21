@@ -204,4 +204,20 @@ public class ComptabiliteManagerImplTest {
 		
 		assertEquals(t1, t);
 	}
+	
+	@Test
+	public void testListeECSize() {
+		
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
+		int taille = liste.size();
+		boolean res = false;
+		
+		int min = 2;
+		
+		if(taille >= min) {
+			res = true;
+		}
+		
+		assertEquals(true, res);
+	}
 }
