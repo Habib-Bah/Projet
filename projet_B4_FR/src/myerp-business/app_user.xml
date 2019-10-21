@@ -2,7 +2,7 @@
 
 <dataset>
 
-<!--  
+  
 	
 	<MYERP.journal_comptable code='AC' libelle='Achat' />
 	<MYERP.journal_comptable code='VE' libelle='Vente' />
@@ -33,6 +33,5 @@
 	<MYERP.compte_comptable numero='606' libelle='Achats non stockés de matières et fournitures' />
 	<MYERP.compte_comptable numero='706' libelle='Prestations de services' />
 	
-	-->
 
 </dataset>

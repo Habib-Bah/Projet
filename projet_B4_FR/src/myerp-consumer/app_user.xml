@@ -2,7 +2,7 @@
 
 <dataset>
 	
-	<!--  
+	  
 	<journal_comptable code='AC' libelle='Achat' />
 	<journal_comptable code='VE' libelle='Vente' />
 	<journal_comptable code='BQ' libelle='Banque' />
@@ -32,5 +32,5 @@
 	<compte_comptable numero='606' libelle='Achats non stockés de matières et fournitures' />
 	<compte_comptable numero='706' libelle='Prestations de services' />
 
--->
+
 </dataset>
