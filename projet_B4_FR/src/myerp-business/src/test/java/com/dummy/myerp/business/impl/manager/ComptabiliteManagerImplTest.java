@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
@@ -118,7 +120,7 @@ public class ComptabiliteManagerImplTest {
 		
 		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
 		
-		int nombreEntite = 5;
+		int nombreEntite = 10;
 		int tailleListe = listeEcriture.size();
 		
 		
@@ -167,7 +169,17 @@ public class ComptabiliteManagerImplTest {
 
 	
 	
+	@Before
+	public void before() {
+		
+		List <EcritureComptable> liste = manager.getListEcritureComptable();
+		
+		int t = liste.size();
+	}
+	
+	
 	/*
+	
 	@Test
 	public void testInsert() throws IOException, FunctionalException {
 			
@@ -189,6 +201,19 @@ public class ComptabiliteManagerImplTest {
 			}
 		}
 		assertEquals(true, res);
+	}
+	
+	
+	@After
+	public void after() {
+		
+		List <EcritureComptable> liste = manager.getListEcritureComptable();
+		
+		for(EcritureComptable ec : liste) {
+			if(ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
+				manager.deleteEcritureComptable(7);
+			}
+		}
 	}
 	*/
 }

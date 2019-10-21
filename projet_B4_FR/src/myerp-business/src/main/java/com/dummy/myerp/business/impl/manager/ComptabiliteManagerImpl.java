@@ -391,7 +391,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	@Override
 	public void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException {
 
-	/*	
+		
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -412,7 +412,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			e.printStackTrace();
 		}
 		
-		*/
+		
 	}
 
 	/**
@@ -420,15 +420,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	 */
 	@Override
 	public void insertSEcritureComptable(SequenceEcritureComptable pEcritureComptable) throws FunctionalException {
-
-		/*
-		 * TransactionStatus vTS = getTransactionManager().beginTransactionMyERP(); try
-		 * {
-		 * getDaoProxy().getComptabiliteDao().updateEcritureComptable(pEcritureComptable
-		 * ); getTransactionManager().commitMyERP(vTS); vTS = null; } finally {
-		 * getTransactionManager().rollbackMyERP(vTS); }
-		 * 
-		 */
 
 		try {
 
