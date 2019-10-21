@@ -85,7 +85,7 @@ public interface ComptabiliteManager {
     void insertSEcritureComptable(SequenceEcritureComptable pEcritureComptable) throws FunctionalException;
 
     /**
-     * Supprime l'écriture comptable d'id {@code pId}.
+     * insert une nouvelle sequence ecriture comptable.
      *
      * @param pId l'id de l'écriture
      */

@@ -143,6 +143,7 @@ public class EcritureComptableTest {
 		assertEquals("test setter", res); 
 	}
 	
+	/* Sequence Ecriture Comptable */
 	
 	@Test
 	public void testSequenceGetAnnee() {
@@ -160,6 +161,43 @@ public class EcritureComptableTest {
 		int annee = sequence.getAnnee();
 		assertEquals(2020, annee);
 	}
+	
+	
+	@Test
+	public void testSequenceGetDerniereV() {
+		
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		int derniereV = sequence.getDerniereValeur();
+		assertEquals(1, derniereV);
+	}
+	
+	@Test
+	public void testSequenceSetDerniereV() {
+		
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		sequence.setDerniereValeur(2);
+		int derniereV = sequence.getDerniereValeur();
+		assertEquals(2, derniereV);
+	}
+	
+	@Test
+	public void testSequenceGetJournalC() {
+		
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		String JournalC = sequence.getJournal_code();
+		assertEquals("AC", JournalC);
+	}
+	
+	@Test
+	public void testSequenceSetJournalC() {
+		
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		sequence.setJournal_code("ACC");
+		String JournalC = sequence.getJournal_code();
+		assertEquals("ACC", JournalC);
+	}
+	
+	/* Journal Comptable */
 	
 	@Test
 	public void testJournalGetCode() {
@@ -190,6 +228,8 @@ public class EcritureComptableTest {
 		String code = journal.getLibelle();
 		assertEquals("Test setter", code);
 	}
+	
+	/* Ligne Ecriture Comptable */
 	
 	@Test
 	public void testLigneECGetLib() {
@@ -273,6 +313,9 @@ public class EcritureComptableTest {
 		
 	}
 	
+	
+	/*  Ecriture Comptable */
+	
 	@Test
 	public void testEcritureCGetRefe() {
 		
@@ -329,5 +372,6 @@ public class EcritureComptableTest {
 		String code = ecriture.getJournal_code();
 		assertEquals("TTI", code);
 	}
+	
 
 }
