@@ -69,7 +69,6 @@ ComptabiliteDAO bib = new ComptabiliteDAO();
 		}
 		assertEquals(true, res);
 	}
-	
 	*/
 	
 	@Test
