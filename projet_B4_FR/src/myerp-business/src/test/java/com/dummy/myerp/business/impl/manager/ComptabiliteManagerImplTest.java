@@ -120,7 +120,7 @@ public class ComptabiliteManagerImplTest {
 		
 		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
 		
-		int nombreEntite = 10;
+		int nombreEntite = 5;
 		int tailleListe = listeEcriture.size();
 		
 		
@@ -175,16 +175,18 @@ public class ComptabiliteManagerImplTest {
 		List <EcritureComptable> liste = manager.getListEcritureComptable();
 		
 		int t = liste.size();
+		
 	}
 	
 	
-	/*
+	
 	
 	@Test
 	public void testInsert() throws IOException, FunctionalException {
 			
 		EcritureComptable ecriture = new EcritureComptable();
-		ecriture.setJournal_code("TI");
+		ecriture.setJournal_code("AC");
+		ecriture.setJournal(new JournalComptable("AC", "Test insert"));
 		ecriture.setReference("TI-2019/00001");
 		ecriture.setDate(new Date());
 		ecriture.setLibelle("Test insert");
@@ -211,9 +213,11 @@ public class ComptabiliteManagerImplTest {
 		
 		for(EcritureComptable ec : liste) {
 			if(ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
-				manager.deleteEcritureComptable(7);
+				manager.deleteEcritureComptable(ec.getReference());
+				
+				
 			}
 		}
 	}
-	*/
+	
 }

@@ -91,6 +91,6 @@ public interface ComptabiliteManager {
      */
    
     
-    void deleteEcritureComptable(Integer pId);
+    void deleteEcritureComptable(String reference);
     
 }

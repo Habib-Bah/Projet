@@ -38,11 +38,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 	// ==================== Attributs ====================
 
-	List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
-	List<JournalComptable> listeJournalComptable = new ArrayList<>();
-	List<CompteComptable> listeCompteComptable = new ArrayList<>();
-	List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
-
 	Connection connection;
 	Statement statement;
 	ResultSet result;
@@ -58,6 +53,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	@Override
 	public List<CompteComptable> getListCompteComptable() {
 
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
 		
 		try {
 
@@ -96,6 +92,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 	@Override
 	public List<SequenceEcritureComptable> getListSequenceEcritureComptable() {
+		
+		List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
 
 		try {
 
@@ -134,6 +132,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	@Override
 	public List<JournalComptable> getListJournalComptable() {
 
+		List<JournalComptable> listeJournalComptable = new ArrayList<>();
+		
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -167,6 +167,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	 */
 	@Override
 	public List<EcritureComptable> getListEcritureComptable() {
+		
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
 
 		try {
 
@@ -446,7 +448,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void deleteEcritureComptable(Integer pId) {
+	public void deleteEcritureComptable(String reference) {
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -454,7 +456,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 			statement = connection.createStatement();
 
-			String sql = "delete from MYERP.ecriture_comptable where id = '" + pId + "'";
+			String sql = "delete from MYERP.ecriture_comptable where reference = '" + reference + "'";
 			statement.executeQuery(sql);
 
 		} catch (Exception e) {
