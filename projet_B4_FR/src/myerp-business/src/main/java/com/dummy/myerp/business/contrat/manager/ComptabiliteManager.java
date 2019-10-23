@@ -110,7 +110,15 @@ public interface ComptabiliteManager {
     void deleteCompteComptable(int pNumero);
 
     /**
-     * insert un nouveau  compte comptable.
+     * supprime un  compte comptable.
+     *
+     * @param pNumero numero de l'écriture
+     */
+    
+    void deleteSEComptable(int derniereValeur);
+
+    /**
+     * supprime une sequence Ecriture comptable.
      *
      * @param pNumero numero de l'écriture
      */

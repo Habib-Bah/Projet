@@ -149,115 +149,112 @@ public class ComptabiliteManagerImplTest {
 
 	int t = 0;
 
-	
 	@Test
 	public void testApresInDe() {
-		
+
 		List<EcritureComptable> liste = manager.getListEcritureComptable();
 		int t1 = liste.size();
-		
+
 		assertEquals(t1, t);
 	}
-	
+
 	@Test
 	public void testListeECSize() {
-		
+
 		List<EcritureComptable> liste = manager.getListEcritureComptable();
 		int taille = liste.size();
 		boolean res = false;
-		
+
 		int min = 2;
-		
-		if(taille >= min) {
+
+		if (taille >= min) {
 			res = true;
 		}
-		
+
 		assertEquals(true, res);
 	}
-	
-	
+
 	@Test
 	public void testLibelleNull() {
-		
+
 		List<CompteComptable> liste = manager.getListCompteComptable();
 		boolean res = false;
-		
-		for(CompteComptable c : liste) {
+
+		for (CompteComptable c : liste) {
 			if (c.getLibelle().isEmpty()) {
 				res = true;
 			}
 		}
-		
+
 		assertEquals(false, res);
 	}
-	
+
 	@Test
 	public void testLibelleCcSize() {
-	
+
 		List<CompteComptable> liste = manager.getListCompteComptable();
 		boolean res = false;
-		
-		for(CompteComptable c : liste) {
-			if(c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
+
+		for (CompteComptable c : liste) {
+			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
 				res = true;
 			}
 		}
-		
+
 		assertEquals(false, res);
 	}
-	
+
 	@Test
 	public void testLibelleEcSize() {
-	
+
 		List<EcritureComptable> liste = manager.getListEcritureComptable();
 		boolean res = false;
-		
-		for(EcritureComptable c : liste) {
-			if(c.getLibelle().length() < 1 || c.getLibelle().length() > 200) {
+
+		for (EcritureComptable c : liste) {
+			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 200) {
 				res = true;
 			}
 		}
-		
+
 		assertEquals(false, res);
 	}
-	
+
 	@Test
 	public void testcodeSize() {
-		
+
 		List<JournalComptable> liste = manager.getListJournalComptable();
 		boolean res = false;
-		
-		for(JournalComptable j : liste) {
-			if(j.getCode().length() < 1 || j.getCode().length() > 5) {
+
+		for (JournalComptable j : liste) {
+			if (j.getCode().length() < 1 || j.getCode().length() > 5) {
 				res = true;
 			}
 		}
-		
+
 		assertEquals(false, res);
 	}
-	
+
 	@Test
 	public void testGetListeLEC() {
-		
+
 		List<LigneEcritureComptable> liste = manager.getLigneEcritureComptable();
 		int nombreEntite = 13;
 		int tailleListe = liste.size();
 
 		assertEquals(nombreEntite, tailleListe);
-		
+
 	}
-	
+
 	@Test
 	public void testInsertCompteC() throws FunctionalException {
-		
+
 		CompteComptable c = new CompteComptable();
 		c.setLibelle("Test insertion");
 		c.setNumero(415);
-		
+
 		manager.insertCompteComptable(c);
 	}
-	
-	
+
 	@Before
 	public void before() {
 
@@ -291,6 +288,18 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
+	@Test
+	public void testInsertSE() throws FunctionalException {
+		
+		SequenceEcritureComptable se = new SequenceEcritureComptable();
+		se.setAnnee(2019);
+		se.setDerniereValeur(1000);
+		se.setJournal_code("AC");
+		
+		manager.insertSEcritureComptable(se);
+	}
+	
+	
 	@After
 	public void after() {
 
@@ -302,12 +311,21 @@ public class ComptabiliteManagerImplTest {
 
 			}
 		}
+
 		
 		List<CompteComptable> listeCC = manager.getListCompteComptable();
-		
-		for(CompteComptable cc : listeCC) {
-			if(cc.getNumero() == 415) {
+
+		for (CompteComptable cc : listeCC) {
+			if (cc.getNumero() == 415) {
 				manager.deleteCompteComptable(cc.getNumero());
+			}
+		}
+		
+		List<SequenceEcritureComptable> listeSE = manager.getListSequenceEcritureComptable();
+		
+		for(SequenceEcritureComptable se : listeSE) {
+			if(se.getDerniereValeur() == 1000) {
+				manager.deleteSEComptable(se.getDerniereValeur());
 			}
 		}
 
