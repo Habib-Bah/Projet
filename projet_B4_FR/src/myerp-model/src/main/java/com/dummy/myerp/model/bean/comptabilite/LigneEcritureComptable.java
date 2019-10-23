@@ -39,8 +39,7 @@ public class LigneEcritureComptable implements Serializable{
     /** The Credit. */
     @MontantComptable
     private BigDecimal credit;
-
-
+    
     // ==================== Constructeurs ====================
     /**
      * Instantiates a new Ligne ecriture comptable.
@@ -64,7 +63,7 @@ public class LigneEcritureComptable implements Serializable{
         credit = pCredit;
     }
 
-
+  
     // ==================== Getters/Setters ====================
     public CompteComptable getCompteComptable() {
         return compteComptable;
@@ -90,9 +89,8 @@ public class LigneEcritureComptable implements Serializable{
     public void setCredit(BigDecimal pCredit) {
         credit = pCredit;
     }
-
-
-    // ==================== Méthodes ====================
+    
+	// ==================== Méthodes ====================
     @Override
     public String toString() {
         final StringBuilder vStB = new StringBuilder(this.getClass().getSimpleName());

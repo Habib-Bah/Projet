@@ -149,53 +149,7 @@ public class ComptabiliteManagerImplTest {
 
 	int t = 0;
 
-	@Before
-	public void before() {
-
-		List<EcritureComptable> liste = manager.getListEcritureComptable();
-
-		t = liste.size();
-
-	}
-
-	@Test
-	public void testInsert() throws IOException, FunctionalException {
-
-		EcritureComptable ecriture = new EcritureComptable();
-		ecriture.setJournal_code("AC");
-		ecriture.setJournal(new JournalComptable("AC", "Test insert"));
-		ecriture.setReference("TI-2019/00001");
-		ecriture.setDate(new Date());
-		ecriture.setLibelle("Test insert");
-
-		manager.insertEcritureComptable(ecriture);
-
-		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
-		boolean res = false;
-
-		for (EcritureComptable ec : listeEcriture) {
-
-			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
-				res = true;
-			}
-		}
-		assertEquals(true, res);
-	}
-
-	@After
-	public void after() {
-
-		List<EcritureComptable> liste = manager.getListEcritureComptable();
-
-		for (EcritureComptable ec : liste) {
-			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
-				manager.deleteEcritureComptable(ec.getReference());
-
-			}
-		}
-
-	}
-
+	
 	@Test
 	public void testApresInDe() {
 		
@@ -281,4 +235,63 @@ public class ComptabiliteManagerImplTest {
 		
 		assertEquals(false, res);
 	}
+	
+	@Test
+	public void testGetListeLEC() {
+		
+		List<LigneEcritureComptable> liste = manager.getLigneEcritureComptable();
+		int nombreEntite = 13;
+		int tailleListe = liste.size();
+
+		assertEquals(nombreEntite, tailleListe);
+		
+	}
+	
+	@Before
+	public void before() {
+
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
+
+		t = liste.size();
+
+	}
+
+	@Test
+	public void testInsert() throws IOException, FunctionalException {
+
+		EcritureComptable ecriture = new EcritureComptable();
+		ecriture.setJournal_code("AC");
+		ecriture.setJournal(new JournalComptable("AC", "Test insert"));
+		ecriture.setReference("TI-2019/00001");
+		ecriture.setDate(new Date());
+		ecriture.setLibelle("Test insert");
+
+		manager.insertEcritureComptable(ecriture);
+
+		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
+		boolean res = false;
+
+		for (EcritureComptable ec : listeEcriture) {
+
+			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
+	}
+
+	@After
+	public void after() {
+
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
+
+		for (EcritureComptable ec : liste) {
+			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
+				manager.deleteEcritureComptable(ec.getReference());
+
+			}
+		}
+
+	}
+
 }

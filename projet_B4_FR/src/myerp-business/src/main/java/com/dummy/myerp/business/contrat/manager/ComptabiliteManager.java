@@ -5,6 +5,7 @@ import java.util.List;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 
@@ -28,6 +29,13 @@ public interface ComptabiliteManager {
      * @return {@link List}
      */
     List<JournalComptable> getListJournalComptable();
+    
+    /**
+     * Renvoie la liste des ligne d'ecriture comptables.
+     *
+     * @return {@link List}
+     */
+    List<LigneEcritureComptable> getLigneEcritureComptable();
 
 
     /**
