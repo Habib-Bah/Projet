@@ -220,4 +220,50 @@ public class ComptabiliteManagerImplTest {
 		
 		assertEquals(true, res);
 	}
+	
+	
+	@Test
+	public void testLibelleNull() {
+		
+		List<CompteComptable> liste = manager.getListCompteComptable();
+		boolean res = false;
+		
+		for(CompteComptable c : liste) {
+			if (c.getLibelle().isEmpty()) {
+				res = true;
+			}
+		}
+		
+		assertEquals(false, res);
+	}
+	
+	@Test
+	public void testLibelleCcSize() {
+	
+		List<CompteComptable> liste = manager.getListCompteComptable();
+		boolean res = false;
+		
+		for(CompteComptable c : liste) {
+			if(c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
+				res = true;
+			}
+		}
+		
+		assertEquals(false, res);
+	}
+	
+	@Test
+	public void testLibelleEcSize() {
+	
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
+		boolean res = false;
+		
+		for(EcritureComptable c : liste) {
+			if(c.getLibelle().length() < 1 || c.getLibelle().length() > 200) {
+				res = true;
+			}
+		}
+		
+		assertEquals(false, res);
+	}
 }

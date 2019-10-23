@@ -43,6 +43,7 @@ public interface ComptabiliteManager {
      * @return {@link List}
      */
     List<SequenceEcritureComptable> getListSequenceEcritureComptable();
+    
 
     /**
      * Ajoute une référence à l'écriture comptable.
