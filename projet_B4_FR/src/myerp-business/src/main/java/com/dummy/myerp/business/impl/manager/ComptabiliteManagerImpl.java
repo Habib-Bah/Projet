@@ -531,6 +531,32 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void insertJournalComptable(JournalComptable pjournalComptable) throws FunctionalException {
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			String code = pjournalComptable.getCode();
+			String libelle = pjournalComptable.getLibelle();
+
+			String sql = "insert into MYERP.journal_comptable (code, libelle) values ( '"
+					+ code + "', '" + libelle + "')";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	
 	/**
@@ -566,6 +592,26 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			statement = connection.createStatement();
 
 			String sql = "delete from MYERP.sequence_ecriture_comptable where derniere_valeur = '" + derniereValeur + "'";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteJComptable(String libelle) {
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			String sql = "delete from MYERP.journal_comptable where libelle = '" + libelle + "'";
 			statement.executeQuery(sql);
 
 		} catch (Exception e) {

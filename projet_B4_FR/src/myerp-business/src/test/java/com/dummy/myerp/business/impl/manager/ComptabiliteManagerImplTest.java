@@ -299,6 +299,15 @@ public class ComptabiliteManagerImplTest {
 		manager.insertSEcritureComptable(se);
 	}
 	
+	@Test
+	public void testinsertJC() throws FunctionalException {
+		
+		JournalComptable j = new JournalComptable();
+		j.setCode("TI");
+		j.setLibelle("Test insert");
+		manager.insertJournalComptable(j);
+	}
+	
 	
 	@After
 	public void after() {
@@ -326,6 +335,15 @@ public class ComptabiliteManagerImplTest {
 		for(SequenceEcritureComptable se : listeSE) {
 			if(se.getDerniereValeur() == 1000) {
 				manager.deleteSEComptable(se.getDerniereValeur());
+			}
+		}
+		
+		
+		List<JournalComptable> listeJC = manager.getListJournalComptable();
+		
+		for(JournalComptable jc : listeJC) {
+			if(jc.getLibelle().equalsIgnoreCase("Test insert")) {
+				manager.deleteJComptable(jc.getLibelle());
 			}
 		}
 
