@@ -247,6 +247,17 @@ public class ComptabiliteManagerImplTest {
 		
 	}
 	
+	@Test
+	public void testInsertCompteC() throws FunctionalException {
+		
+		CompteComptable c = new CompteComptable();
+		c.setLibelle("Test insertion");
+		c.setNumero(415);
+		
+		manager.insertCompteComptable(c);
+	}
+	
+	
 	@Before
 	public void before() {
 
@@ -289,6 +300,14 @@ public class ComptabiliteManagerImplTest {
 			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
 				manager.deleteEcritureComptable(ec.getReference());
 
+			}
+		}
+		
+		List<CompteComptable> listeCC = manager.getListCompteComptable();
+		
+		for(CompteComptable cc : listeCC) {
+			if(cc.getNumero() == 415) {
+				manager.deleteCompteComptable(cc.getNumero());
 			}
 		}
 

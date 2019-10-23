@@ -96,9 +96,24 @@ public interface ComptabiliteManager {
     /**
      * insert une nouvelle sequence ecriture comptable.
      *
-     * @param pId l'id de l'écriture
+     * @param pEcritureComptable
+     */
+    
+    void insertCompteComptable(CompteComptable pCompteComptable) throws FunctionalException;
+
+    /**
+     * insert un nouveau  compte comptable.
+     *
+     * @param pEcritureComptable
      */
    
+    void deleteCompteComptable(int pNumero);
+
+    /**
+     * insert un nouveau  compte comptable.
+     *
+     * @param pNumero numero de l'écriture
+     */
     
     void deleteEcritureComptable(String reference);
     

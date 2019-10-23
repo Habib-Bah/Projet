@@ -505,5 +505,51 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void insertCompteComptable(CompteComptable pCompteComptable) throws FunctionalException {
 
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			int numero = pCompteComptable.getNumero();
+			String libelle = pCompteComptable.getLibelle();
+
+			String sql = "insert into MYERP.compte_comptable (numero, libelle) values ( '"
+					+ numero + "', '" + libelle + "')";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteCompteComptable(int pNumero) {
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			String sql = "delete from MYERP.compte_comptable where numero = '" + pNumero + "'";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
