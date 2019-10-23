@@ -266,4 +266,19 @@ public class ComptabiliteManagerImplTest {
 		
 		assertEquals(false, res);
 	}
+	
+	@Test
+	public void testcodeSize() {
+		
+		List<JournalComptable> liste = manager.getListJournalComptable();
+		boolean res = false;
+		
+		for(JournalComptable j : liste) {
+			if(j.getCode().length() < 1 || j.getCode().length() > 5) {
+				res = true;
+			}
+		}
+		
+		assertEquals(false, res);
+	}
 }
