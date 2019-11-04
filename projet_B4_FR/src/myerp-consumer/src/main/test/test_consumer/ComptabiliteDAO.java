@@ -20,21 +20,11 @@ public class ComptabiliteDAO {
 	List<JournalComptable> listeJournalComptable = new ArrayList<>();
 	List<CompteComptable> listeCompteComptable = new ArrayList<>();
 	List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
-	//private final String jdbcURL = "jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp";
 
 	Connection connection;
 	Statement statement;
 	ResultSet result;
 
-	// AnnotationConfigApplicationContext context = new
-	// AnnotationConfigApplicationContext(AppConfig.class);
-
-	// LivreService livreService = context.getBean(LivreService.class);
-	// ReservationService reservationService =
-	// context.getBean(ReservationService.class);
-	// UtilisateurService utilisateurService =
-	// context.getBean(UtilisateurService.class);
-	// PretService pretService = context.getBean(PretService.class);
 
 	public List<EcritureComptable> getListeEcritureComptable() throws IOException {
 

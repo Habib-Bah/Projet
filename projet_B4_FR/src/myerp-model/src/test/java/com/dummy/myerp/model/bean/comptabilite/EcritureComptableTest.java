@@ -22,7 +22,7 @@ public class EcritureComptableTest {
 				vLibelle, vDebit, vCredit);
 		return vRetour;
 	}
-
+	
 	@Test
 	public void isEquilibree() {
 		EcritureComptable vEcriture;
