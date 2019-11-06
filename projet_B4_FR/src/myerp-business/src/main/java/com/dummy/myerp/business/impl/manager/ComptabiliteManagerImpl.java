@@ -557,6 +557,37 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void insertLigneEcritureC(LigneEcritureComptable ligne) throws FunctionalException {
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			int ecriture_id = 10;
+			int ligne_id = 10;
+			int compte_comptable_numero = 10;
+			String libelle = "Test";
+			int debit = 10;
+			int credit = 10;
+
+			String sql = "insert into MYERP.ligne_ecriture_comptable (ecriture_id, ligne_id, compte_comptable_numero, libelle, debit, credit) values ( '"
+					+ ecriture_id + "', '" + ligne_id + "', '" + compte_comptable_numero+"', '" + libelle + "', '" + debit + "', '" + credit + "')";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 
 	
 	/**
@@ -618,4 +649,5 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			e.printStackTrace();
 		}
 	}
+	
 }

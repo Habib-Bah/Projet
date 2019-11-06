@@ -307,7 +307,7 @@ public class ComptabiliteManagerImplTest {
 		j.setLibelle("Test insert");
 		manager.insertJournalComptable(j);
 	}
-	
+		
 	
 	@After
 	public void after() {

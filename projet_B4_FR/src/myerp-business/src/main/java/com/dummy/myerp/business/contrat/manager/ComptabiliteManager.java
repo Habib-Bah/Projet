@@ -114,6 +114,14 @@ public interface ComptabiliteManager {
      *
      * @param pjournalComptable
      */
+    
+    void insertLigneEcritureC(LigneEcritureComptable ligne) throws FunctionalException;
+
+    /**
+     * insert un nouveau  journal comptable.
+     *
+     * @param pjournalComptable
+     */
    
     void deleteCompteComptable(int pNumero);
 
@@ -122,6 +130,8 @@ public interface ComptabiliteManager {
      *
      * @param pNumero numero de l'écriture
      */
+    
+ 
     
     void deleteSEComptable(int derniereValeur);
 
