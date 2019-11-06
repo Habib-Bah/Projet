@@ -462,16 +462,20 @@ public class ComptabiliteManagerImplTest {
 
 	
 	
-	 
-	 
-	
-	
-	/*
-	
-	
-	
-
-
-*/
+	 @Test
+	 public void testComp() {
+		 
+		 List<CompteComptable> ljc = manager.getListCompteComptable();
+		 List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
+		 
+		 int t1 = ljc.size();
+		 int t2 = lseq.size();
+		 boolean res = false;
+		 
+		 if(t1 > t2) {
+			 res = true;
+		 }
+		 assertEquals(true, res);
+	 }
  
 }
