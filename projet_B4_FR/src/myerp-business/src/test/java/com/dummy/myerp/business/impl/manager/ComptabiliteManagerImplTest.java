@@ -24,6 +24,7 @@ public class ComptabiliteManagerImplTest {
 
 	
 	
+	
 	@Test
 	public void checkEcritureComptableUnit() throws Exception {
 		EcritureComptable vEcritureComptable;
