@@ -299,16 +299,6 @@ public class ComptabiliteManagerImplTest {
 
 		manager.insertEcritureComptable(ecriture);
 
-		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
-		boolean res = false;
-
-		for (EcritureComptable ec : listeEcriture) {
-
-			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
-				res = true;
-			}
-		}
-		assertEquals(false, res);
 	}
 
 	@Test
