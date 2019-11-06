@@ -447,7 +447,8 @@ public class EcritureComptableTest {
 	ResultSet result;
 
 	
-	public List<CompteComptable> getListCompteComptable() {
+	@Test
+	public void testGetListeCompteC() {
 
 		List<CompteComptable> listeCompteComptable = new ArrayList<>();
 		
@@ -477,7 +478,56 @@ public class EcritureComptableTest {
 			e.printStackTrace();
 		}
 
-		return listeCompteComptable;
+		List<CompteComptable> listeCompteC = listeCompteComptable;
+
+		int nombreEntite = 7;
+		int tailleListe = listeCompteC.size();
+
+		assertEquals(nombreEntite, tailleListe);
 		
+	}
+
+	
+
+	
+	@Test
+	public void testGetSEComptable() throws IOException {
+		
+		List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.sequence_ecriture_comptable");
+
+			while (result.next()) {
+
+				SequenceEcritureComptable cp = new SequenceEcritureComptable();
+
+				String journal_code = result.getString(1);
+				int annee = result.getInt(2);
+				int derniere_valeur = result.getInt(3);
+
+				cp.setAnnee(annee);
+				cp.setDerniereValeur(derniere_valeur);
+				cp.setJournal_code(journal_code);
+
+				listeSequenceEComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<SequenceEcritureComptable> listeSEC = listeSequenceEComptable;
+
+		int nombreEntite = 4;
+		int tailleListe = listeSEC.size();
+
+		assertEquals(nombreEntite, tailleListe);
 	}
 }

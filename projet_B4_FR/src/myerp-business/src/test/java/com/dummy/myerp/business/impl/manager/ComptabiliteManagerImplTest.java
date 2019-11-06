@@ -136,6 +136,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	/*
 	@Test
 	public void testGetSEComptable() throws IOException {
 
@@ -147,6 +148,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+*/
 	int t = 0;
 
 	@Test
@@ -340,7 +342,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
-	/*
 	@Test
 	public void testGetListeEcriture2() throws IOException {
 
@@ -363,7 +364,17 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
-*/
+	@Test
+	public void testGetCompteComptable2() throws IOException {
+
+		List<CompteComptable> listeCompteC = manager.getListCompteComptable();
+
+		int nombreEntite = 7;
+		int tailleListe = listeCompteC.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+
 	@Test
 	public void testDeleteEcritureComptable() {
 
