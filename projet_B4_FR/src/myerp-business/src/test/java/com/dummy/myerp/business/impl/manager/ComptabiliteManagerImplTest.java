@@ -22,6 +22,8 @@ public class ComptabiliteManagerImplTest {
 
 	private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
 
+	
+	
 	@Test
 	public void checkEcritureComptableUnit() throws Exception {
 		EcritureComptable vEcritureComptable;
@@ -432,6 +434,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	
+	
+	
 	@Test
 	public void testGetListeJournal2() throws IOException {
 
@@ -442,6 +447,9 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(nombreEntite, tailleListe);
 	}
+	
+	
+	
 	
 	@Test
 	public void testGetCompteComptable2() throws IOException {
