@@ -22,9 +22,6 @@ public class ComptabiliteManagerImplTest {
 
 	private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
 
-	
-	
-	
 	@Test
 	public void checkEcritureComptableUnit() throws Exception {
 		EcritureComptable vEcritureComptable;
@@ -45,10 +42,6 @@ public class ComptabiliteManagerImplTest {
 		vEcritureComptable = new EcritureComptable();
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
-	
-	
-	
-	
 
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG2() throws Exception {
@@ -63,10 +56,6 @@ public class ComptabiliteManagerImplTest {
 				.add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(1234)));
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
-	
-	
-	
-	
 
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG3() throws Exception {
@@ -81,10 +70,6 @@ public class ComptabiliteManagerImplTest {
 				.add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
-	
-	
-	
-	
 
 	@Test
 	public void testaddReference() {
@@ -102,10 +87,6 @@ public class ComptabiliteManagerImplTest {
 		manager.addReference(vEcritureComptable);
 	}
 
-	
-	
-	
-	
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG5() throws Exception {
 
@@ -122,10 +103,6 @@ public class ComptabiliteManagerImplTest {
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
 
-	
-	
-	
-	
 	@Test
 	public void testGetListeEcriture() throws IOException {
 
@@ -137,9 +114,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
-	
-	
-	
 	@Test
 	public void testGetListeJournal() throws IOException {
 
@@ -151,9 +125,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
-	
-	
-	
 	@Test
 	public void testGetCompteComptable() throws IOException {
 
@@ -165,9 +136,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
-	
-	
-	
 	@Test
 	public void testGetSEComptable() throws IOException {
 
@@ -180,9 +148,6 @@ public class ComptabiliteManagerImplTest {
 	}
 
 	int t = 0;
-	
-	
-	
 
 	@Test
 	public void testApresInDe() {
@@ -192,9 +157,6 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(t1, t);
 	}
-	
-	
-	
 
 	@Test
 	public void testListeECSize() {
@@ -212,9 +174,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
-	
-	
-	
 	@Test
 	public void testLibelleNull() {
 
@@ -230,9 +189,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(false, res);
 	}
 
-	
-	
-	
 	@Test
 	public void testLibelleCcSize() {
 
@@ -248,9 +204,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(false, res);
 	}
 
-	
-	
-	
 	@Test
 	public void testLibelleEcSize() {
 
@@ -265,10 +218,6 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(false, res);
 	}
-	
-	
-	
-	
 
 	@Test
 	public void testcodeSize() {
@@ -284,9 +233,6 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(false, res);
 	}
-	
-	
-	
 
 	@Test
 	public void testGetListeLEC() {
@@ -298,9 +244,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 
 	}
-	
-	
-	
 
 	@Test
 	public void testInsertCompteC() throws FunctionalException {
@@ -310,7 +253,7 @@ public class ComptabiliteManagerImplTest {
 		c.setNumero(415);
 
 		manager.insertCompteComptable(c);
-		
+
 		List<CompteComptable> listeCC = manager.getListCompteComptable();
 		boolean res = false;
 
@@ -323,8 +266,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
-	
-	
 	@Before
 	public void before() {
 
@@ -333,9 +274,6 @@ public class ComptabiliteManagerImplTest {
 		t = liste.size();
 
 	}
-	
-	
-	
 
 	@Test
 	public void testInsert() throws IOException, FunctionalException {
@@ -360,55 +298,49 @@ public class ComptabiliteManagerImplTest {
 		}
 		assertEquals(true, res);
 	}
-	
-	
-	
 
 	@Test
 	public void testInsertSE() throws FunctionalException {
-		
+
 		SequenceEcritureComptable se = new SequenceEcritureComptable();
 		se.setAnnee(2019);
 		se.setDerniereValeur(1000);
 		se.setJournal_code("AC");
-		
+
 		manager.insertSEcritureComptable(se);
-		
+
 		List<SequenceEcritureComptable> lse = manager.getListSequenceEcritureComptable();
 		boolean res = false;
-		
-		for(SequenceEcritureComptable seq : lse) {
-			if(se.getAnnee() == 2019) {
+
+		for (SequenceEcritureComptable seq : lse) {
+			if (se.getAnnee() == 2019) {
 				res = true;
 			}
 		}
 		assertEquals(true, res);
-		
+
 	}
-	
-	
-	
-	
+
 	@Test
 	public void testinsertJC() throws FunctionalException {
-		
+
 		JournalComptable j = new JournalComptable();
 		j.setCode("TI");
 		j.setLibelle("Test insert");
 		manager.insertJournalComptable(j);
-		
+
 		List<JournalComptable> ljc = manager.getListJournalComptable();
 		boolean res = false;
-		
-		for(JournalComptable jc : ljc) {
-			if(jc.getCode().equalsIgnoreCase("TI")) {
+
+		for (JournalComptable jc : ljc) {
+			if (jc.getCode().equalsIgnoreCase("TI")) {
 				res = true;
 			}
 		}
 		assertEquals(true, res);
 	}
-		
-	
+
+	/*
 	@Test
 	public void testGetListeEcriture2() throws IOException {
 
@@ -420,9 +352,6 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
-	
-	
-	
 	@Test
 	public void testGetListeJournal2() throws IOException {
 
@@ -433,25 +362,63 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(nombreEntite, tailleListe);
 	}
-	
-	
+
+*/
 	@Test
-	public void testGetCompteComptable2() throws IOException {
+	public void testDeleteEcritureComptable() {
 
-		List<CompteComptable> listeCompteC = manager.getListCompteComptable();
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
 
-		int nombreEntite = 7;
-		int tailleListe = listeCompteC.size();
+		for (EcritureComptable ec : liste) {
+			if (ec.getReference().equalsIgnoreCase("TI-2019/00001")) {
+				manager.deleteEcritureComptable(ec.getReference());
 
-		assertEquals(nombreEntite, tailleListe);
+			}
+		}
+
+	}
+
+	@Test
+	public void testDeleteCompteComptable() {
+
+		List<CompteComptable> listeCC = manager.getListCompteComptable();
+
+		for (CompteComptable cc : listeCC) {
+			if (cc.getNumero() == 415) {
+				manager.deleteCompteComptable(cc.getNumero());
+			}
+		}
+
+	}
+
+	@Test
+	public void testDeleteSequenceEcritureComptable() {
+
+		List<SequenceEcritureComptable> listeSE = manager.getListSequenceEcritureComptable();
+
+		for (SequenceEcritureComptable se : listeSE) {
+			if (se.getDerniereValeur() == 1000) {
+				manager.deleteSEComptable(se.getDerniereValeur());
+			}
+		}
+
 	}
 	
 	
+	@Test
+	public void testDeleteJournalComptable() {
 
-	
-	
-	
-	
+		List<JournalComptable> listeJC = manager.getListJournalComptable();
+
+		for (JournalComptable jc : listeJC) {
+			if (jc.getLibelle().equalsIgnoreCase("Test insert")) {
+				manager.deleteJComptable(jc.getLibelle());
+			}
+		}
+
+	}
+
+
 	@After
 	public void after() {
 
@@ -464,7 +431,6 @@ public class ComptabiliteManagerImplTest {
 			}
 		}
 
-		
 		List<CompteComptable> listeCC = manager.getListCompteComptable();
 
 		for (CompteComptable cc : listeCC) {
@@ -472,90 +438,87 @@ public class ComptabiliteManagerImplTest {
 				manager.deleteCompteComptable(cc.getNumero());
 			}
 		}
-		
+
 		List<SequenceEcritureComptable> listeSE = manager.getListSequenceEcritureComptable();
-		
-		for(SequenceEcritureComptable se : listeSE) {
-			if(se.getDerniereValeur() == 1000) {
+
+		for (SequenceEcritureComptable se : listeSE) {
+			if (se.getDerniereValeur() == 1000) {
 				manager.deleteSEComptable(se.getDerniereValeur());
 			}
 		}
-		
-		
+
 		List<JournalComptable> listeJC = manager.getListJournalComptable();
-		
-		for(JournalComptable jc : listeJC) {
-			if(jc.getLibelle().equalsIgnoreCase("Test insert")) {
+
+		for (JournalComptable jc : listeJC) {
+			if (jc.getLibelle().equalsIgnoreCase("Test insert")) {
 				manager.deleteJComptable(jc.getLibelle());
 			}
 		}
 
 	}
-	
-	
-	 @Test
-	 public void testComp() {
-		 
-		 List<CompteComptable> ljc = manager.getListCompteComptable();
-		 List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
-		 
-		 int t1 = ljc.size();
-		 int t2 = lseq.size();
-		 boolean res = false;
-		 
-		 if(t1 > t2) {
-			 res = true;
-		 }
-		 assertEquals(true, res);
-	 }
-	 
-	 @Test
-	 public void testComp1() {
-		 
-		 List<EcritureComptable> ljc = manager.getListEcritureComptable();
-		 List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
-		 
-		 int t1 = ljc.size();
-		 int t2 = lseq.size();
-		 boolean res = false;
-		 
-		 if(t1 > t2) {
-			 res = true;
-		 }
-		 assertEquals(true, res);
-	 }
-	 
-	 @Test
-	 public void testComp2() {
-		 
-		 List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
-		 List<EcritureComptable> lec = manager.getListEcritureComptable();
-		 
-		 int t1 = ljc.size();
-		 int t2 = lec.size();
-		 boolean res = false;
-		 
-		 if(t1 > t2) {
-			 res = true;
-		 }
-		 assertEquals(true, res);
-	 }
-	 
-	 @Test
-	 public void testComp3() {
-		 
-		 List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
-		 List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
-		 
-		 int t1 = ljc.size();
-		 int t2 = lseq.size();
-		 boolean res = false;
-		 
-		 if(t1 > t2) {
-			 res = true;
-		 }
-		 assertEquals(true, res);
-	 }
-	 
-	 
+
+	@Test
+	public void testComp() {
+
+		List<CompteComptable> ljc = manager.getListCompteComptable();
+		List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
+
+		int t1 = ljc.size();
+		int t2 = lseq.size();
+		boolean res = false;
+
+		if (t1 > t2) {
+			res = true;
+		}
+		assertEquals(true, res);
+	}
+
+	@Test
+	public void testComp1() {
+
+		List<EcritureComptable> ljc = manager.getListEcritureComptable();
+		List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
+
+		int t1 = ljc.size();
+		int t2 = lseq.size();
+		boolean res = false;
+
+		if (t1 > t2) {
+			res = true;
+		}
+		assertEquals(true, res);
+	}
+
+	@Test
+	public void testComp2() {
+
+		List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
+		List<EcritureComptable> lec = manager.getListEcritureComptable();
+
+		int t1 = ljc.size();
+		int t2 = lec.size();
+		boolean res = false;
+
+		if (t1 > t2) {
+			res = true;
+		}
+		assertEquals(true, res);
+	}
+
+	@Test
+	public void testComp3() {
+
+		List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
+		List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
+
+		int t1 = ljc.size();
+		int t2 = lseq.size();
+		boolean res = false;
+
+		if (t1 > t2) {
+			res = true;
+		}
+		assertEquals(true, res);
+	}
+
 }
