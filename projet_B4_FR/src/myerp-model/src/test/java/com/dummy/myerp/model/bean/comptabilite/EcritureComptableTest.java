@@ -613,4 +613,40 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 
 		assertEquals(nombreEntite, tailleListe);
 	}
+	
+	@Test
+	public void testGetListeLEC() {
+
+		List<LigneEcritureComptable> listeLigneEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ligne_ecriture_comptable");
+
+			while (result.next()) {
+
+				LigneEcritureComptable lc = new LigneEcritureComptable();
+
+				lc.setLibelle(result.getString(4));
+				lc.setDebit(result.getBigDecimal(5));
+				lc.setCredit(result.getBigDecimal(6));
+				
+				listeLigneEcritureComptable.add(lc);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<LigneEcritureComptable> liste = listeLigneEcritureComptable;
+		int nombreEntite = 13;
+		int tailleListe = liste.size();
+
+		assertEquals(nombreEntite, tailleListe);
+
+	}
 }
