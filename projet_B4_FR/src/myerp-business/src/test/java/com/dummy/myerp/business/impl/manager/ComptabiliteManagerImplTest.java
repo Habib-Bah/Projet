@@ -419,6 +419,7 @@ public class ComptabiliteManagerImplTest {
 	
 	
 	
+	
 	@After
 	public void after() {
 
