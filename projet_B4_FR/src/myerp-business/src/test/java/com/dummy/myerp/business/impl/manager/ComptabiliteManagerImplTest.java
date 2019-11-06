@@ -417,4 +417,56 @@ public class ComptabiliteManagerImplTest {
 
 	}
 
+	
+	
+	  
+	 
+	@Test
+	public void testGetListeEcriture2() throws IOException {
+
+		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
+
+		int nombreEntite = 5;
+		int tailleListe = listeEcriture.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+
+	@Test
+	public void testGetListeJournal2() throws IOException {
+
+		List<JournalComptable> listeJournal = manager.getListJournalComptable();
+
+		int nombreEntite = 4;
+		int tailleListe = listeJournal.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	@Test
+	public void testGetCompteComptable2() throws IOException {
+
+		List<CompteComptable> listeCompteC = manager.getListCompteComptable();
+
+		int nombreEntite = 7;
+		int tailleListe = listeCompteC.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+
+	
+	/*
+	
+	@Test
+	public void testGetSEComptable2() throws IOException {
+
+		List<SequenceEcritureComptable> listeSEC = manager.getListSequenceEcritureComptable();
+
+		int nombreEntite = 4;
+		int tailleListe = listeSEC.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+*/
+ 
 }
