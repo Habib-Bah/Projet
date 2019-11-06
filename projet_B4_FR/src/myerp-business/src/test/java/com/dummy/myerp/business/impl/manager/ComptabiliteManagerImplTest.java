@@ -42,6 +42,10 @@ public class ComptabiliteManagerImplTest {
 		vEcritureComptable = new EcritureComptable();
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
+	
+	
+	
+	
 
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG2() throws Exception {
@@ -56,6 +60,10 @@ public class ComptabiliteManagerImplTest {
 				.add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(1234)));
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
+	
+	
+	
+	
 
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG3() throws Exception {
@@ -70,6 +78,10 @@ public class ComptabiliteManagerImplTest {
 				.add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
+	
+	
+	
+	
 
 	@Test
 	public void testaddReference() {
@@ -87,6 +99,10 @@ public class ComptabiliteManagerImplTest {
 		manager.addReference(vEcritureComptable);
 	}
 
+	
+	
+	
+	
 	@Test(expected = FunctionalException.class)
 	public void checkEcritureComptableUnitRG5() throws Exception {
 
@@ -103,6 +119,10 @@ public class ComptabiliteManagerImplTest {
 		manager.checkEcritureComptableUnit(vEcritureComptable);
 	}
 
+	
+	
+	
+	
 	@Test
 	public void testGetListeEcriture() throws IOException {
 
