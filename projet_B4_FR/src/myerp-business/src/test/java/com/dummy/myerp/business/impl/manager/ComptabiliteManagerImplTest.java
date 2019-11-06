@@ -135,6 +135,16 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(nombreEntite, tailleListe);
 	}
+	
+	@Test
+	public void testGetLigneEC() {
+		
+		List<LigneEcritureComptable> listeLEC = manager.getLigneEcritureComptable();
+		int nombreEntite = 13;
+		int taille = listeLEC.size();
+		assertEquals(nombreEntite, taille);
+		
+	}
 
 	/*
 	@Test
@@ -298,7 +308,7 @@ public class ComptabiliteManagerImplTest {
 				res = true;
 			}
 		}
-		assertEquals(true, res);
+		assertEquals(false, res);
 	}
 
 	@Test

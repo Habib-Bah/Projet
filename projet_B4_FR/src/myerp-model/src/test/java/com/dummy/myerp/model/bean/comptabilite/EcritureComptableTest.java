@@ -530,4 +530,87 @@ public class EcritureComptableTest {
 
 		assertEquals(nombreEntite, tailleListe);
 	}
+	
+	@Test
+	public void testGetListeJournal() throws IOException {
+
+List<JournalComptable> listeJournalComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.journal_comptable");
+
+			while (result.next()) {
+
+				JournalComptable jc = new JournalComptable();
+
+				String code = result.getString(1);
+				String libelle = result.getString(2);
+
+				jc.setCode(code);
+				jc.setLibelle(libelle);
+
+				listeJournalComptable.add(jc);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		List<JournalComptable> listeJournal = listeJournalComptable;
+
+		int nombreEntite = 4;
+		int tailleListe = listeJournal.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
+	
+	@Test
+	public void testGetListeEcriture() throws IOException {
+		
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		List<EcritureComptable> listeEcriture = listeEcritureComptable;
+
+		int nombreEntite = 5;
+		int tailleListe = listeEcriture.size();
+
+		assertEquals(nombreEntite, tailleListe);
+	}
 }
