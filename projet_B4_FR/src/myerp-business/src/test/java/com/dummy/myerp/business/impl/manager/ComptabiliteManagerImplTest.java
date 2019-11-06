@@ -459,7 +459,6 @@ public class ComptabiliteManagerImplTest {
 		}
 
 	}
-
 	
 	
 	 @Test
@@ -496,6 +495,22 @@ public class ComptabiliteManagerImplTest {
 	 
 	 @Test
 	 public void testComp2() {
+		 
+		 List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
+		 List<EcritureComptable> lec = manager.getListEcritureComptable();
+		 
+		 int t1 = ljc.size();
+		 int t2 = lec.size();
+		 boolean res = false;
+		 
+		 if(t1 > t2) {
+			 res = true;
+		 }
+		 assertEquals(true, res);
+	 }
+	 
+	 @Test
+	 public void testComp3() {
 		 
 		 List<LigneEcritureComptable> ljc = manager.getLigneEcritureComptable();
 		 List<SequenceEcritureComptable> lseq = manager.getListSequenceEcritureComptable();
