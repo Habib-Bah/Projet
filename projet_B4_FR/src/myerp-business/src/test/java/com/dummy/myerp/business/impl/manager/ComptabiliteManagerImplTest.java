@@ -362,6 +362,17 @@ public class ComptabiliteManagerImplTest {
 		se.setJournal_code("AC");
 		
 		manager.insertSEcritureComptable(se);
+		
+		List<SequenceEcritureComptable> lse = manager.getListSequenceEcritureComptable();
+		boolean res = false;
+		
+		for(SequenceEcritureComptable seq : lse) {
+			if(se.getAnnee() == 2019) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
+		
 	}
 	
 	
@@ -524,5 +535,6 @@ public class ComptabiliteManagerImplTest {
 		 }
 		 assertEquals(true, res);
 	 }
- 
+	 
+	 
 }
