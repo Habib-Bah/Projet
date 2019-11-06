@@ -23,6 +23,9 @@ public class EcritureComptableTest {
 		return vRetour;
 	}
 	
+	
+	
+	
 	@Test
 	public void isEquilibree() {
 		EcritureComptable vEcriture;
@@ -43,6 +46,10 @@ public class EcritureComptableTest {
 		vEcriture.getListLigneEcriture().add(this.createLigne(2, "1", "2"));
 		Assert.assertFalse(vEcriture.toString(), vEcriture.isEquilibree());
 	}
+	
+	
+	
+	
 
 	@Test
 	public void testgetTotalDebitEcritureCompta() {
@@ -74,6 +81,9 @@ public class EcritureComptableTest {
 		assertEquals(result, res);
 	}
 
+	
+	
+	
 	@Test
 	public void testgetTotalCreditEcritureCompta() {
 
@@ -104,6 +114,9 @@ public class EcritureComptableTest {
 		assertEquals(result, res);
 	}
 
+	
+	
+	
 	@Test
 	public void testGetNumero() {
 
@@ -111,6 +124,9 @@ public class EcritureComptableTest {
 		int res = compte.getNumero();
 		assertEquals(5, res);
 	}
+	
+	
+	
 
 	@Test
 	public void testSetNumero() {
@@ -122,6 +138,8 @@ public class EcritureComptableTest {
 		assertEquals(6, res);
 	}
 
+	
+	
 	@Test
 	public void testGetLibelle() {
 
@@ -133,6 +151,9 @@ public class EcritureComptableTest {
 		assertEquals("Libelle setter", res);
 	}
 
+	
+	
+	
 	@Test
 	public void testsetLibelle() {
 
@@ -142,6 +163,9 @@ public class EcritureComptableTest {
 		assertEquals("test setter", res);
 	}
 
+	
+	
+	
 	/* Sequence Ecriture Comptable */
 
 	@Test
@@ -152,6 +176,9 @@ public class EcritureComptableTest {
 		assertEquals(2019, annee);
 	}
 
+	
+	
+	
 	@Test
 	public void testSequenceSetAnnee() {
 
@@ -161,6 +188,9 @@ public class EcritureComptableTest {
 		assertEquals(2020, annee);
 	}
 
+	
+	
+	
 	@Test
 	public void testSequenceGetDerniereV() {
 
@@ -169,6 +199,9 @@ public class EcritureComptableTest {
 		assertEquals(1, derniereV);
 	}
 
+	
+	
+	
 	@Test
 	public void testSequenceSetDerniereV() {
 
@@ -178,6 +211,9 @@ public class EcritureComptableTest {
 		assertEquals(2, derniereV);
 	}
 
+	
+	
+	
 	@Test
 	public void testSequenceGetJournalC() {
 
@@ -186,6 +222,9 @@ public class EcritureComptableTest {
 		assertEquals("AC", JournalC);
 	}
 
+	
+	
+	
 	@Test
 	public void testSequenceSetJournalC() {
 
@@ -195,6 +234,8 @@ public class EcritureComptableTest {
 		assertEquals("ACC", JournalC);
 	}
 
+	
+	
 	/* Journal Comptable */
 
 	@Test
@@ -204,6 +245,8 @@ public class EcritureComptableTest {
 		assertEquals("TT", code);
 	}
 
+	
+	
 	@Test
 	public void testJournalSetCode() {
 		JournalComptable journal = new JournalComptable("TT", "Test");
@@ -212,6 +255,9 @@ public class EcritureComptableTest {
 		assertEquals("TIS", code);
 	}
 
+	
+	
+	
 	@Test
 	public void testJournalGetLibelle() {
 		JournalComptable journal = new JournalComptable("TT", "Test");
@@ -219,6 +265,9 @@ public class EcritureComptableTest {
 		assertEquals("Test", code);
 	}
 
+	
+	
+	
 	@Test
 	public void testJournalSetLibelle() {
 		JournalComptable journal = new JournalComptable("TT", "Test");
@@ -227,6 +276,9 @@ public class EcritureComptableTest {
 		assertEquals("Test setter", code);
 	}
 
+	
+	
+	
 	/* Ligne Ecriture Comptable */
 
 	@Test
@@ -241,6 +293,9 @@ public class EcritureComptableTest {
 		assertEquals("Test", libelle);
 	}
 
+	
+	
+	
 	@Test
 	public void testLigneECSetLib() {
 		CompteComptable compte = new CompteComptable(1, "test");
@@ -254,6 +309,9 @@ public class EcritureComptableTest {
 		assertEquals("Test setter", libelle);
 	}
 
+	
+	
+	
 	@Test
 	public void testLigneECGetDebit() {
 		CompteComptable compte = new CompteComptable(1, "test");
@@ -266,6 +324,9 @@ public class EcritureComptableTest {
 		assertEquals(debit, deb);
 	}
 
+	
+	
+	
 	@Test
 	public void testLigneECSetDebit() {
 		CompteComptable compte = new CompteComptable(1, "test");
@@ -282,6 +343,9 @@ public class EcritureComptableTest {
 
 	}
 
+	
+	
+	
 	@Test
 	public void testLigneECGetCredit() {
 		CompteComptable compte = new CompteComptable(1, "test");
@@ -294,6 +358,9 @@ public class EcritureComptableTest {
 		assertEquals(credit, deb);
 	}
 
+	
+	
+	
 	@Test
 	public void testLigneECSetCredit() {
 		CompteComptable compte = new CompteComptable(1, "test");
@@ -312,6 +379,9 @@ public class EcritureComptableTest {
 
 	/* Ecriture Comptable */
 
+	
+	
+	
 	@Test
 	public void testEcritureCGetRefe() {
 
@@ -321,6 +391,9 @@ public class EcritureComptableTest {
 		assertEquals("RF-2019/00001", reference);
 	}
 
+	
+	
+	
 	@Test
 	public void testEcritureCSetRefe() {
 
@@ -331,6 +404,8 @@ public class EcritureComptableTest {
 		assertEquals("RF-2019/00002", reference);
 	}
 
+	
+	
 	@Test
 	public void testEcritureCGetLibel() {
 
@@ -340,6 +415,9 @@ public class EcritureComptableTest {
 		assertEquals("Test", libelle);
 	}
 
+	
+	
+	
 	@Test
 	public void testEcritureCSetLibel() {
 
@@ -350,6 +428,9 @@ public class EcritureComptableTest {
 		assertEquals("Test setter", libelle);
 	}
 
+	
+	
+	
 	@Test
 	public void testEcritureCGetCode() {
 
@@ -359,6 +440,9 @@ public class EcritureComptableTest {
 		assertEquals("TT", code);
 	}
 
+	
+	
+	
 	@Test
 	public void testEcritureCSetCode() {
 
@@ -369,6 +453,9 @@ public class EcritureComptableTest {
 		assertEquals("TTI", code);
 	}
 
+	
+	
+	
 	@Test
 	public void testEcritureCGetSetId() {
 
@@ -378,6 +465,9 @@ public class EcritureComptableTest {
 		assertEquals(1, id);
 	}
 
+	
+	
+	
 	@Test
 	public void testListeEC() {
 
@@ -393,6 +483,9 @@ public class EcritureComptableTest {
 		assertEquals(2, taille);
 	}
 
+	
+	
+	
 	@Test
 	public void testLibelleEcTaille() {
 
@@ -413,6 +506,10 @@ public class EcritureComptableTest {
 
 		assertEquals(false, res);
 	}
+	
+	
+	
+	
 	
 	@Test
 	public void testCCLibelleSize() {

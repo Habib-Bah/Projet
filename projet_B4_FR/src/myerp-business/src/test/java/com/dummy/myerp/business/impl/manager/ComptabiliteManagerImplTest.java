@@ -134,6 +134,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	
+	
+	
 	@Test
 	public void testGetListeJournal() throws IOException {
 
@@ -145,6 +148,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	
+	
+	
 	@Test
 	public void testGetCompteComptable() throws IOException {
 
@@ -156,6 +162,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	
+	
+	
 	@Test
 	public void testGetSEComptable() throws IOException {
 
@@ -168,6 +177,9 @@ public class ComptabiliteManagerImplTest {
 	}
 
 	int t = 0;
+	
+	
+	
 
 	@Test
 	public void testApresInDe() {
@@ -177,6 +189,9 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(t1, t);
 	}
+	
+	
+	
 
 	@Test
 	public void testListeECSize() {
@@ -194,6 +209,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
+	
+	
+	
 	@Test
 	public void testLibelleNull() {
 
@@ -209,6 +227,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(false, res);
 	}
 
+	
+	
+	
 	@Test
 	public void testLibelleCcSize() {
 
@@ -224,6 +245,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(false, res);
 	}
 
+	
+	
+	
 	@Test
 	public void testLibelleEcSize() {
 
@@ -238,6 +262,10 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(false, res);
 	}
+	
+	
+	
+	
 
 	@Test
 	public void testcodeSize() {
@@ -253,6 +281,9 @@ public class ComptabiliteManagerImplTest {
 
 		assertEquals(false, res);
 	}
+	
+	
+	
 
 	@Test
 	public void testGetListeLEC() {
@@ -264,6 +295,9 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 
 	}
+	
+	
+	
 
 	@Test
 	public void testInsertCompteC() throws FunctionalException {
@@ -275,6 +309,8 @@ public class ComptabiliteManagerImplTest {
 		manager.insertCompteComptable(c);
 	}
 
+	
+	
 	@Before
 	public void before() {
 
@@ -283,6 +319,9 @@ public class ComptabiliteManagerImplTest {
 		t = liste.size();
 
 	}
+	
+	
+	
 
 	@Test
 	public void testInsert() throws IOException, FunctionalException {
@@ -307,6 +346,9 @@ public class ComptabiliteManagerImplTest {
 		}
 		assertEquals(true, res);
 	}
+	
+	
+	
 
 	@Test
 	public void testInsertSE() throws FunctionalException {
@@ -319,6 +361,9 @@ public class ComptabiliteManagerImplTest {
 		manager.insertSEcritureComptable(se);
 	}
 	
+	
+	
+	
 	@Test
 	public void testinsertJC() throws FunctionalException {
 		
@@ -328,6 +373,9 @@ public class ComptabiliteManagerImplTest {
 		manager.insertJournalComptable(j);
 	}
 		
+	
+	
+	
 	
 	@After
 	public void after() {
