@@ -649,4 +649,220 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 		assertEquals(nombreEntite, tailleListe);
 
 	}
+	
+	
+	@Test
+	public void testListeECSize() {
+
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		int taille = listeEcritureComptable.size();
+		boolean res = false;
+
+		int min = 2;
+
+		if (taille >= min) {
+			res = true;
+		}
+
+		assertEquals(true, res);
+	}
+
+	@Test
+	public void testLibelleNull() {
+
+List<CompteComptable> listeCompteComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
+
+			while (result.next()) {
+
+				CompteComptable cp = new CompteComptable();
+
+				int numero = result.getInt(1);
+				String libelle = result.getString(2);
+
+				cp.setNumero(numero);
+				cp.setLibelle(libelle);
+
+				listeCompteComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = false;
+
+		for (CompteComptable c : listeCompteComptable) {
+			if (c.getLibelle().isEmpty()) {
+				res = true;
+			}
+		}
+
+		assertEquals(false, res);
+	}
+
+	@Test
+	public void testLibelleCcSize() {
+
+List<CompteComptable> listeCompteComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
+
+			while (result.next()) {
+
+				CompteComptable cp = new CompteComptable();
+
+				int numero = result.getInt(1);
+				String libelle = result.getString(2);
+
+				cp.setNumero(numero);
+				cp.setLibelle(libelle);
+
+				listeCompteComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = false;
+
+		for (CompteComptable c : listeCompteComptable) {
+			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
+				res = true;
+			}
+		}
+
+		assertEquals(false, res);
+	}
+
+	@Test
+	public void testLibelleEcSize() {
+
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = false;
+
+		for (EcritureComptable c : listeEcritureComptable) {
+			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 200) {
+				res = true;
+			}
+		}
+
+		assertEquals(false, res);
+	}
+
+	@Test
+	public void testcodeSize() {
+
+List<JournalComptable> listeJournalComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.journal_comptable");
+
+			while (result.next()) {
+
+				JournalComptable jc = new JournalComptable();
+
+				String code = result.getString(1);
+				String libelle = result.getString(2);
+
+				jc.setCode(code);
+				jc.setLibelle(libelle);
+
+				listeJournalComptable.add(jc);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = false;
+
+		for (JournalComptable j : listeJournalComptable) {
+			if (j.getCode().length() < 1 || j.getCode().length() > 5) {
+				res = true;
+			}
+		}
+
+		assertEquals(false, res);
+	}
+
 }
