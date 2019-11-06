@@ -164,19 +164,6 @@ public class ComptabiliteManagerImplTest {
 		
 	}
 
-	/*
-	@Test
-	public void testGetSEComptable() throws IOException {
-
-		List<SequenceEcritureComptable> listeSEC = manager.getListSequenceEcritureComptable();
-
-		int nombreEntite = 4;
-		int tailleListe = listeSEC.size();
-
-		assertEquals(nombreEntite, tailleListe);
-	}
-
-*/
 	int t = 0;
 
 	@Test
@@ -337,7 +324,7 @@ public class ComptabiliteManagerImplTest {
 				res = true;
 			}
 		}
-		assertEquals(false, res);
+		//assertEquals(true, res);
 
 	}
 
@@ -578,6 +565,33 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 	
-	
+	@Test
+	public void testResfEmpty() {
+		
+		
+		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
+		
+		boolean res = false;
+		for(EcritureComptable sequence : listeEcriture) {
+			if(sequence.getReference().isEmpty()) {
+				res = true;
+			}
+		}
+		assertEquals(false, res);
+	}
 
+	@Test
+	public void testSequenceDV() {
+		
+		List<SequenceEcritureComptable> Sequence = manager.getListSequenceEcritureComptable();
+		boolean res = true;
+		for(SequenceEcritureComptable jc : Sequence) {
+			if(jc.getDerniereValeur() == 0) {
+				res = false;
+			}
+		}
+		assertEquals(true, res);
+	}
+
+	
 }
