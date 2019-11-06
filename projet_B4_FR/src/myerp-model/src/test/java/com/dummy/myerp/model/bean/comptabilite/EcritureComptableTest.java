@@ -2,7 +2,12 @@ package com.dummy.myerp.model.bean.comptabilite;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -434,5 +439,45 @@ public class EcritureComptableTest {
 		}
 
 		assertEquals(false, res);
+	}
+	
+	
+	Connection connection;
+	Statement statement;
+	ResultSet result;
+
+	
+	public List<CompteComptable> getListCompteComptable() {
+
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
+
+			while (result.next()) {
+
+				CompteComptable cp = new CompteComptable();
+
+				int numero = result.getInt(1);
+				String libelle = result.getString(2);
+
+				cp.setNumero(numero);
+				cp.setLibelle(libelle);
+
+				listeCompteComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listeCompteComptable;
+		
 	}
 }

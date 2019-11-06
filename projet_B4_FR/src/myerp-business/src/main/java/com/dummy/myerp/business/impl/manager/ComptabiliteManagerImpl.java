@@ -360,7 +360,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			throw new FunctionalException(
 					"L'écriture comptable doit avoir au moins deux lignes : une ligne au débit et une ligne au crédit.");
 		}
-		
 
 		// TODO ===== RG_Compta_5 : Format et contenu de la référence
 		// vérifier que l'année dans la référence correspond bien à la date de
@@ -400,10 +399,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 
 	}
-	
-	
-	
-	
 
 	/**
 	 * Vérifie que l'Ecriture comptable respecte les règles de gestion liées au
@@ -433,9 +428,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			}
 		}
 	}
-	
-	
-	
 	
 
 	/**
