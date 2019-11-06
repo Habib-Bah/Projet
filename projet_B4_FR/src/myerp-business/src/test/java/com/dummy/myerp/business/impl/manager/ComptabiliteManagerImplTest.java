@@ -310,6 +310,17 @@ public class ComptabiliteManagerImplTest {
 		c.setNumero(415);
 
 		manager.insertCompteComptable(c);
+		
+		List<CompteComptable> listeCC = manager.getListCompteComptable();
+		boolean res = false;
+
+		for (CompteComptable cc : listeCC) {
+
+			if (cc.getNumero() == 415) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
 	}
 
 	
@@ -385,6 +396,16 @@ public class ComptabiliteManagerImplTest {
 		j.setCode("TI");
 		j.setLibelle("Test insert");
 		manager.insertJournalComptable(j);
+		
+		List<JournalComptable> ljc = manager.getListJournalComptable();
+		boolean res = false;
+		
+		for(JournalComptable jc : ljc) {
+			if(jc.getCode().equalsIgnoreCase("TI")) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
 	}
 		
 	
