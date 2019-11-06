@@ -531,5 +531,33 @@ public class ComptabiliteManagerImplTest {
 		}
 		assertEquals(true, res);
 	}
+	
+	@Test
+	public void testReffeIsEQ() {
+		
+		List<EcritureComptable> listeEC = manager.getListEcritureComptable();
+		boolean res = false;
+		
+		for(EcritureComptable ec : listeEC) {
+			if(ec.isEquilibree()) {
+				res = true;
+			}
+		}
+		assertEquals(true, res);
+	}
+	
+	@Test
+	public void testReff() {
+		
+		List<EcritureComptable> listeEC = manager.getListEcritureComptable();
+		boolean res = true;
+		for(EcritureComptable ec : listeEC) {
+			if(!ec.isEquilibree()) {
+				res = false;
+			}
+		}
+		
+		assertEquals(true, res);
+	}
 
 }
