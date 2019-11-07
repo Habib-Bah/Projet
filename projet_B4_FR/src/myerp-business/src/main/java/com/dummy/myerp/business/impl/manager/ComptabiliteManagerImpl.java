@@ -433,6 +433,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	/**
 	 * {@inheritDoc}
 	 */
+	/*
 	@Override
 	public void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException {
 
@@ -462,6 +463,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		
 	}
 
+*/
 	/**
 	 * {@inheritDoc}
 	 */
@@ -496,6 +498,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	/**
 	 * {@inheritDoc}
 	 */
+	/*
 	@Override
 	public void deleteEcritureComptable(String reference) {
 		try {
@@ -513,12 +516,14 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 	}
 	
-	
+	*/
 	
 	
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	/*
 	@Override
 	public void insertCompteComptable(CompteComptable pCompteComptable) throws FunctionalException {
 
@@ -542,13 +547,15 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 	}
 	
-	
+	*/
 	
 	
 	
 	/**
 	 * {@inheritDoc}
 	 */
+	/*
+	
 	@Override
 	public void insertJournalComptable(JournalComptable pjournalComptable) throws FunctionalException {
 
@@ -572,12 +579,15 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 	}
 	
-	
+	*/
 	
 	
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	/*
+	
 	@Override
 	public void insertLigneEcritureC(LigneEcritureComptable ligne) throws FunctionalException {
 
@@ -606,12 +616,15 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	}
 
 
-	
+*/	
 	
 	
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	/*
+	
 	@Override
 	public void deleteCompteComptable(int pNumero) {
 		try {
@@ -629,7 +642,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 	}
 	
-	
+	*/
 	
 	
 	/**
@@ -658,6 +671,9 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	/*
+	
 	@Override
 	public void deleteJComptable(String libelle) {
 		try {
@@ -675,9 +691,14 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 	}
 	
+	*/
+	
 	/**
 	 * {@inheritDoc}
 	 */
+	
+	/*
+	
 	@Override
 	public void deleteLigneEcritureComptable(String libelle) {
 		try {
@@ -694,5 +715,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 			e.printStackTrace();
 		}
 	}
+	
+	*/
 
 }

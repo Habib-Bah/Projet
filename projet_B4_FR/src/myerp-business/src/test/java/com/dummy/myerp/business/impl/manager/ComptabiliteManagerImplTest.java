@@ -254,6 +254,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(false, res);
 	}
 
+	/*
 	@Test
 	public void testGetListeLEC() {
 
@@ -299,14 +300,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(true, res);
 	}
 
-	@Before
-	public void before() {
-
-		List<EcritureComptable> liste = manager.getListEcritureComptable();
-
-		t = liste.size();
-
-	}
+	
 
 	@Test
 	public void testInsert() throws IOException, FunctionalException {
@@ -320,6 +314,38 @@ public class ComptabiliteManagerImplTest {
 
 		manager.insertEcritureComptable(ecriture);
 		
+		
+		@Test
+	public void testinsertJC() throws FunctionalException {
+
+		JournalComptable j = new JournalComptable();
+		j.setCode("TI");
+		j.setLibelle("Test insert");
+		manager.insertJournalComptable(j);
+
+		List<JournalComptable> ljc = manager.getListJournalComptable();
+		boolean res = false;
+
+		for (JournalComptable jc : ljc) {
+			if (jc.getCode().equalsIgnoreCase("TI")) {
+				res = true;
+			}
+		}
+		//assertEquals(true, res);
+		
+	}
+
+		
+
+	}
+	*/
+	
+	@Before
+	public void before() {
+
+		List<EcritureComptable> liste = manager.getListEcritureComptable();
+
+		t = liste.size();
 
 	}
 
@@ -345,27 +371,8 @@ public class ComptabiliteManagerImplTest {
 
 	}
 
-	@Test
-	public void testinsertJC() throws FunctionalException {
-
-		JournalComptable j = new JournalComptable();
-		j.setCode("TI");
-		j.setLibelle("Test insert");
-		manager.insertJournalComptable(j);
-
-		List<JournalComptable> ljc = manager.getListJournalComptable();
-		boolean res = false;
-
-		for (JournalComptable jc : ljc) {
-			if (jc.getCode().equalsIgnoreCase("TI")) {
-				res = true;
-			}
-		}
-		//assertEquals(true, res);
-		
-	}
-
-
+	
+/*
 	@Test
 	public void testDeleteEcritureComptable() {
 
@@ -390,8 +397,25 @@ public class ComptabiliteManagerImplTest {
 				manager.deleteCompteComptable(cc.getNumero());
 			}
 		}
+		
+		
 
 	}
+	
+	@Test
+	public void testDeleteJournalComptable() {
+
+		List<JournalComptable> listeJC = manager.getListJournalComptable();
+
+		for (JournalComptable jc : listeJC) {
+			if (jc.getLibelle().equalsIgnoreCase("Test insert")) {
+				manager.deleteJComptable(jc.getLibelle());
+			}
+		}
+
+	}
+	
+	*/
 
 	@Test
 	public void testDeleteSequenceEcritureComptable() {
@@ -407,23 +431,12 @@ public class ComptabiliteManagerImplTest {
 	}
 	
 	
-	@Test
-	public void testDeleteJournalComptable() {
-
-		List<JournalComptable> listeJC = manager.getListJournalComptable();
-
-		for (JournalComptable jc : listeJC) {
-			if (jc.getLibelle().equalsIgnoreCase("Test insert")) {
-				manager.deleteJComptable(jc.getLibelle());
-			}
-		}
-
-	}
 
 
 	@After
 	public void after() {
 
+		/*
 		List<EcritureComptable> liste = manager.getListEcritureComptable();
 
 		for (EcritureComptable ec : liste) {
@@ -440,15 +453,7 @@ public class ComptabiliteManagerImplTest {
 				manager.deleteCompteComptable(cc.getNumero());
 			}
 		}
-
-		List<SequenceEcritureComptable> listeSE = manager.getListSequenceEcritureComptable();
-
-		for (SequenceEcritureComptable se : listeSE) {
-			if (se.getDerniereValeur() == 1000) {
-				manager.deleteSEComptable(se.getDerniereValeur());
-			}
-		}
-
+		
 		List<JournalComptable> listeJC = manager.getListJournalComptable();
 
 		for (JournalComptable jc : listeJC) {
@@ -468,6 +473,19 @@ public class ComptabiliteManagerImplTest {
 			}
 		}
 
+
+*/
+		List<SequenceEcritureComptable> listeSE = manager.getListSequenceEcritureComptable();
+
+		for (SequenceEcritureComptable se : listeSE) {
+			if (se.getDerniereValeur() == 1000) {
+				manager.deleteSEComptable(se.getDerniereValeur());
+			}
+		}
+		
+	
+
+		
 	}
 
 	@Test

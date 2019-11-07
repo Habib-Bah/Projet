@@ -83,7 +83,7 @@ public interface ComptabiliteManager {
      * @param pEcritureComptable -
      * @throws FunctionalException Si l'Ecriture comptable ne respecte pas les règles de gestion
      */
-    void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException;
+   // void insertEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException;
 
     /**
      * insert une nouvelle sequence ecriture comptable.
@@ -99,7 +99,7 @@ public interface ComptabiliteManager {
      * @param pEcritureComptable
      */
     
-    void insertCompteComptable(CompteComptable pCompteComptable) throws FunctionalException;
+    //void insertCompteComptable(CompteComptable pCompteComptable) throws FunctionalException;
 
     /**
      * insert un nouveau  compte comptable.
@@ -107,7 +107,7 @@ public interface ComptabiliteManager {
      * @param pEcritureComptable
      */
     
-    void insertJournalComptable(JournalComptable pjournalComptable) throws FunctionalException;
+   // void insertJournalComptable(JournalComptable pjournalComptable) throws FunctionalException;
 
     /**
      * insert un nouveau  journal comptable.
@@ -115,7 +115,7 @@ public interface ComptabiliteManager {
      * @param pjournalComptable
      */
     
-    void insertLigneEcritureC(LigneEcritureComptable ligne) throws FunctionalException;
+   // void insertLigneEcritureC(LigneEcritureComptable ligne) throws FunctionalException;
 
     /**
      * insert un nouveau  journal comptable.
@@ -123,7 +123,7 @@ public interface ComptabiliteManager {
      * @param pjournalComptable
      */
    
-    void deleteCompteComptable(int pNumero);
+   // void deleteCompteComptable(int pNumero);
 
     /**
      * supprime un  compte comptable.
@@ -141,7 +141,7 @@ public interface ComptabiliteManager {
      * @param pNumero numero de l'écriture
      */
     
-    void deleteJComptable(String libelle);
+   // void deleteJComptable(String libelle);
 
     /**
      * supprime une ecriture comptable.
@@ -149,7 +149,7 @@ public interface ComptabiliteManager {
      * @param reference de l'ecriture
      */
     
-    void deleteEcritureComptable(String reference);
+  //  void deleteEcritureComptable(String reference);
     
     /**
      * supprime une ligne comptable.
@@ -157,6 +157,6 @@ public interface ComptabiliteManager {
      * @param libelle de la ligne
      */
     
-    void deleteLigneEcritureComptable(String libelle);
+  //  void deleteLigneEcritureComptable(String libelle);
     
 }
