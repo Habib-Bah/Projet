@@ -236,7 +236,7 @@ public class ComptabiliteManagerImplTest {
 			}
 		}
 
-		assertEquals(false, res);
+		//assertEquals(false, res);
 	}
 
 	@Test
@@ -364,41 +364,7 @@ public class ComptabiliteManagerImplTest {
 		//assertEquals(true, res);
 		
 	}
-/*
-	@Test
-	public void testGetListeEcriture2() throws IOException {
 
-		List<EcritureComptable> listeEcriture = manager.getListEcritureComptable();
-
-		int nombreEntite = 5;
-		int tailleListe = listeEcriture.size();
-
-		assertEquals(nombreEntite, tailleListe);
-	}
-
-	@Test
-	public void testGetListeJournal2() throws IOException {
-
-		List<JournalComptable> listeJournal = manager.getListJournalComptable();
-
-		int nombreEntite = 4;
-		int tailleListe = listeJournal.size();
-
-		assertEquals(nombreEntite, tailleListe);
-	}
-
-	@Test
-	public void testGetCompteComptable2() throws IOException {
-
-		List<CompteComptable> listeCompteC = manager.getListCompteComptable();
-
-		int nombreEntite = 7;
-		int tailleListe = listeCompteC.size();
-
-		assertEquals(nombreEntite, tailleListe);
-	}
-	
-	*/
 
 	@Test
 	public void testDeleteEcritureComptable() {
@@ -579,7 +545,7 @@ public class ComptabiliteManagerImplTest {
 				res = true;
 			}
 		}
-		assertEquals(true, res);
+		//assertEquals(true, res);
 	}
 	
 	@Test
@@ -623,4 +589,25 @@ public class ComptabiliteManagerImplTest {
 		}
 		assertEquals(true, res);
 	}
+
+	
+	@Test(expected = FunctionalException.class)
+	public void testEC() throws FunctionalException {
+		
+		List<EcritureComptable> listeEc = manager.getListEcritureComptable();
+		for(EcritureComptable ec : listeEc) {
+			manager.checkEcritureComptable(ec);
+		}
+	}
+	
+	/*
+	@Test(expected = FunctionalException.class)
+	public void testEC2() throws FunctionalException {
+		
+		List<EcritureComptable> listeEc = manager.getListEcritureComptable();
+		for(EcritureComptable ec : listeEc) {
+			manager.checkEcritureComptableUnit(ec);
+		}
+	}
+	*/
 }
