@@ -27,7 +27,7 @@ public class EcritureComptableTest {
 				vLibelle, vDebit, vCredit);
 		return vRetour;
 	}
-	
+
 	@Test
 	public void isEquilibree() {
 		EcritureComptable vEcriture;
@@ -110,131 +110,6 @@ public class EcritureComptableTest {
 	}
 
 	@Test
-	public void testGetNumero() {
-
-		CompteComptable compte = new CompteComptable(5, "test");
-		int res = compte.getNumero();
-		assertEquals(5, res);
-	}
-
-	@Test
-	public void testSetNumero() {
-
-		CompteComptable compte = new CompteComptable(5, "test");
-		compte.setNumero(6);
-
-		int res = compte.getNumero();
-		assertEquals(6, res);
-	}
-
-	@Test
-	public void testGetLibelle() {
-
-		CompteComptable compte = new CompteComptable(5, "test");
-		compte.setLibelle("Libelle setter");
-
-		String res = compte.getLibelle();
-
-		assertEquals("Libelle setter", res);
-	}
-
-	@Test
-	public void testsetLibelle() {
-
-		CompteComptable compte = new CompteComptable(5, "test");
-		compte.setLibelle("test setter");
-		String res = compte.getLibelle();
-		assertEquals("test setter", res);
-	}
-
-	/* Sequence Ecriture Comptable */
-
-	@Test
-	public void testSequenceGetAnnee() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		int annee = sequence.getAnnee();
-		assertEquals(2019, annee);
-	}
-
-	@Test
-	public void testSequenceSetAnnee() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		sequence.setAnnee(2020);
-		int annee = sequence.getAnnee();
-		assertEquals(2020, annee);
-	}
-
-	@Test
-	public void testSequenceGetDerniereV() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		int derniereV = sequence.getDerniereValeur();
-		assertEquals(1, derniereV);
-	}
-
-	@Test
-	public void testSequenceSetDerniereV() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		sequence.setDerniereValeur(2);
-		int derniereV = sequence.getDerniereValeur();
-		assertEquals(2, derniereV);
-	}
-
-	@Test
-	public void testSequenceGetJournalC() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		String JournalC = sequence.getJournal_code();
-		assertEquals("AC", JournalC);
-	}
-
-	@Test
-	public void testSequenceSetJournalC() {
-
-		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
-		sequence.setJournal_code("ACC");
-		String JournalC = sequence.getJournal_code();
-		assertEquals("ACC", JournalC);
-	}
-
-	/* Journal Comptable */
-
-	@Test
-	public void testJournalGetCode() {
-		JournalComptable journal = new JournalComptable("TT", "Test");
-		String code = journal.getCode();
-		assertEquals("TT", code);
-	}
-
-	@Test
-	public void testJournalSetCode() {
-		JournalComptable journal = new JournalComptable("TT", "Test");
-		journal.setCode("TIS");
-		String code = journal.getCode();
-		assertEquals("TIS", code);
-	}
-
-	@Test
-	public void testJournalGetLibelle() {
-		JournalComptable journal = new JournalComptable("TT", "Test");
-		String code = journal.getLibelle();
-		assertEquals("Test", code);
-	}
-
-	@Test
-	public void testJournalSetLibelle() {
-		JournalComptable journal = new JournalComptable("TT", "Test");
-		journal.setLibelle("Test setter");
-		String code = journal.getLibelle();
-		assertEquals("Test setter", code);
-	}
-
-	/* Ligne Ecriture Comptable */
-
-	@Test
 	public void testLigneECGetLib() {
 		CompteComptable compte = new CompteComptable(1, "test");
 		BigDecimal debit = new BigDecimal(72.27);
@@ -315,7 +190,124 @@ public class EcritureComptableTest {
 
 	}
 
-	/* Ecriture Comptable */
+	@Test
+	public void testGetNumero() {
+
+		CompteComptable compte = new CompteComptable(5, "test");
+		int res = compte.getNumero();
+		assertEquals(5, res);
+	}
+
+	@Test
+	public void testSetNumero() {
+
+		CompteComptable compte = new CompteComptable(5, "test");
+		compte.setNumero(6);
+
+		int res = compte.getNumero();
+		assertEquals(6, res);
+	}
+
+	@Test
+	public void testGetLibelle() {
+
+		CompteComptable compte = new CompteComptable(5, "test");
+		compte.setLibelle("Libelle setter");
+
+		String res = compte.getLibelle();
+
+		assertEquals("Libelle setter", res);
+	}
+
+	@Test
+	public void testsetLibelle() {
+
+		CompteComptable compte = new CompteComptable(5, "test");
+		compte.setLibelle("test setter");
+		String res = compte.getLibelle();
+		assertEquals("test setter", res);
+	}
+
+	@Test
+	public void testSequenceGetAnnee() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		int annee = sequence.getAnnee();
+		assertEquals(2019, annee);
+	}
+
+	@Test
+	public void testSequenceSetAnnee() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		sequence.setAnnee(2020);
+		int annee = sequence.getAnnee();
+		assertEquals(2020, annee);
+	}
+
+	@Test
+	public void testSequenceGetDerniereV() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		int derniereV = sequence.getDerniereValeur();
+		assertEquals(1, derniereV);
+	}
+
+	@Test
+	public void testSequenceSetDerniereV() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		sequence.setDerniereValeur(2);
+		int derniereV = sequence.getDerniereValeur();
+		assertEquals(2, derniereV);
+	}
+
+	@Test
+	public void testSequenceGetJournalC() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		String JournalC = sequence.getJournal_code();
+		assertEquals("AC", JournalC);
+	}
+
+	@Test
+	public void testSequenceSetJournalC() {
+
+		SequenceEcritureComptable sequence = new SequenceEcritureComptable("AC", 2019, 1);
+		sequence.setJournal_code("ACC");
+		String JournalC = sequence.getJournal_code();
+		assertEquals("ACC", JournalC);
+	}
+
+	@Test
+	public void testJournalGetCode() {
+		JournalComptable journal = new JournalComptable("TT", "Test");
+		String code = journal.getCode();
+		assertEquals("TT", code);
+	}
+
+	@Test
+	public void testJournalSetCode() {
+		JournalComptable journal = new JournalComptable("TT", "Test");
+		journal.setCode("TIS");
+		String code = journal.getCode();
+		assertEquals("TIS", code);
+	}
+
+	@Test
+	public void testJournalGetLibelle() {
+		JournalComptable journal = new JournalComptable("TT", "Test");
+		String code = journal.getLibelle();
+		assertEquals("Test", code);
+	}
+
+	@Test
+	public void testJournalSetLibelle() {
+		JournalComptable journal = new JournalComptable("TT", "Test");
+		journal.setLibelle("Test setter");
+		String code = journal.getLibelle();
+		assertEquals("Test setter", code);
+	}
 
 	@Test
 	public void testEcritureCGetRefe() {
@@ -384,21 +376,6 @@ public class EcritureComptableTest {
 	}
 
 	@Test
-	public void testListeEC() {
-
-		List<EcritureComptable> liste = new ArrayList<>();
-
-		EcritureComptable ecriture1 = new EcritureComptable("TT1", "RF-2019/00001", new Date(), "Test1");
-		EcritureComptable ecriture2 = new EcritureComptable("TT2", "RF-2019/00002", new Date(), "Test2");
-
-		liste.add(ecriture1);
-		liste.add(ecriture2);
-		int taille = liste.size();
-
-		assertEquals(2, taille);
-	}
-
-	@Test
 	public void testLibelleEcTaille() {
 
 		List<EcritureComptable> liste = new ArrayList<>();
@@ -418,40 +395,16 @@ public class EcritureComptableTest {
 
 		assertEquals(false, res);
 	}
-	
-	@Test
-	public void testCCLibelleSize() {
-		
-		List<CompteComptable> liste = new ArrayList<>();
-		
-		CompteComptable c1 = new CompteComptable(1, "c1");
-		CompteComptable c2 = new CompteComptable(2, "c2");
-		CompteComptable c3 = new CompteComptable(3, "c3");
-		liste.add(c1);
-		liste.add(c2);
-		liste.add(c3);
-		boolean res = false;
-		
-		for (CompteComptable c : liste) {
-			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
-				res = true;
-			}
-		}
 
-		assertEquals(false, res);
-	}
-	
-	
 	Connection connection;
 	Statement statement;
 	ResultSet result;
 
-	
 	@Test
 	public void testGetListeCompteC() {
 
 		List<CompteComptable> listeCompteComptable = new ArrayList<>();
-		
+
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -484,15 +437,12 @@ public class EcritureComptableTest {
 		int tailleListe = listeCompteC.size();
 
 		assertEquals(nombreEntite, tailleListe);
-		
+
 	}
 
-	
-
-	
 	@Test
 	public void testGetSEComptable() throws IOException {
-		
+
 		List<SequenceEcritureComptable> listeSequenceEComptable = new ArrayList<>();
 
 		try {
@@ -522,7 +472,7 @@ public class EcritureComptableTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		List<SequenceEcritureComptable> listeSEC = listeSequenceEComptable;
 
 		int nombreEntite = 4;
@@ -530,12 +480,12 @@ public class EcritureComptableTest {
 
 		assertEquals(nombreEntite, tailleListe);
 	}
-	
+
 	@Test
 	public void testGetListeJournal() throws IOException {
 
-List<JournalComptable> listeJournalComptable = new ArrayList<>();
-		
+		List<JournalComptable> listeJournalComptable = new ArrayList<>();
+
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -561,8 +511,7 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		List<JournalComptable> listeJournal = listeJournalComptable;
 
 		int nombreEntite = 4;
@@ -570,10 +519,10 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 
 		assertEquals(nombreEntite, tailleListe);
 	}
-	
+
 	@Test
 	public void testGetListeEcriture() throws IOException {
-		
+
 		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
 
 		try {
@@ -613,7 +562,7 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 
 		assertEquals(nombreEntite, tailleListe);
 	}
-	
+
 	@Test
 	public void testGetListeLEC() {
 
@@ -634,14 +583,14 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 				lc.setLibelle(result.getString(4));
 				lc.setDebit(result.getBigDecimal(5));
 				lc.setCredit(result.getBigDecimal(6));
-				
+
 				listeLigneEcritureComptable.add(lc);
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		List<LigneEcritureComptable> liste = listeLigneEcritureComptable;
 		int nombreEntite = 13;
 		int tailleListe = liste.size();
@@ -649,8 +598,7 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 		assertEquals(nombreEntite, tailleListe);
 
 	}
-	
-	
+
 	@Test
 	public void testListeECSize() {
 
@@ -700,8 +648,8 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 	@Test
 	public void testLibelleNull() {
 
-List<CompteComptable> listeCompteComptable = new ArrayList<>();
-		
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
+
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -741,8 +689,8 @@ List<CompteComptable> listeCompteComptable = new ArrayList<>();
 	@Test
 	public void testLibelleCcSize() {
 
-List<CompteComptable> listeCompteComptable = new ArrayList<>();
-		
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
+
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -827,8 +775,8 @@ List<CompteComptable> listeCompteComptable = new ArrayList<>();
 	@Test
 	public void testcodeSize() {
 
-List<JournalComptable> listeJournalComptable = new ArrayList<>();
-		
+		List<JournalComptable> listeJournalComptable = new ArrayList<>();
+
 		try {
 
 			Class.forName("org.postgresql.Driver").newInstance();
@@ -865,4 +813,223 @@ List<JournalComptable> listeJournalComptable = new ArrayList<>();
 		assertEquals(false, res);
 	}
 
+	@Test
+	public void testISEqui() {
+
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
+
+			while (result.next()) {
+
+				CompteComptable cp = new CompteComptable();
+
+				int numero = result.getInt(1);
+				String libelle = result.getString(2);
+
+				cp.setNumero(numero);
+				cp.setLibelle(libelle);
+
+				listeCompteComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = false;
+
+		for (CompteComptable c : listeCompteComptable) {
+			if (c.getLibelle().length() < 1 || c.getLibelle().length() > 150) {
+				res = true;
+			}
+		}
+
+		assertEquals(false, res);
+	}
+
+	@Test
+	public void testisEQ() {
+
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean result = false;
+
+		for (EcritureComptable ec : listeEcritureComptable) {
+			if (ec.isEquilibree()) {
+				result = true;
+			}
+		}
+
+		assertEquals(true, result);
+	}
+
+	@Test
+	public void testEC() {
+
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		boolean res = true;
+		if (listeEcritureComptable.size() < 2) {
+			res = false;
+		}
+
+		assertEquals(true, res);
+	}
+
+	
+	@Test
+	public void testEC2() {
+
+		List<EcritureComptable> listeEcritureComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.ecriture_comptable");
+
+			while (result.next()) {
+
+				EcritureComptable ec = new EcritureComptable();
+
+				String journal_comptable = result.getString(2);
+				String reference = result.getString(3);
+				Date date = result.getDate(4);
+				String libelle = result.getString(5);
+
+				ec.setDate(date);
+				ec.setJournal_code(journal_comptable);
+				ec.setLibelle(libelle);
+				ec.setReference(reference);
+
+				listeEcritureComptable.add(ec);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		boolean res = true;
+		for(EcritureComptable ec : listeEcritureComptable) {
+			if(ec.getLibelle().length() < 1 || ec.getLibelle().length() > 200) {
+				res = false;
+			}
+		}
+
+		assertEquals(true, res);
+	}
+
+	@Test
+	public void testJCGetByID() {
+		
+		
+		Connection connection;
+		Statement statement;
+		ResultSet result;
+		
+		List<JournalComptable> listeJournalComptable = new ArrayList<>();
+
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.journal_comptable");
+
+			while (result.next()) {
+
+				JournalComptable jc = new JournalComptable();
+
+				String code = result.getString(1);
+				String libelle = result.getString(2);
+
+				jc.setCode(code);
+				jc.setLibelle(libelle);
+
+				listeJournalComptable.add(jc);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		JournalComptable j = JournalComptable.getByCode(listeJournalComptable, "AC");
+		
+		boolean res = false;
+		if (j.getLibelle().equalsIgnoreCase("Achat")) {
+			res = true;
+		}
+		
+		assertEquals(true, res);
+	}
 }
