@@ -600,7 +600,7 @@ public class ComptabiliteManagerImplTest {
 		}
 	}
 	
-	/*
+	
 	@Test(expected = FunctionalException.class)
 	public void testEC2() throws FunctionalException {
 		
@@ -609,5 +609,5 @@ public class ComptabiliteManagerImplTest {
 			manager.checkEcritureComptableUnit(ec);
 		}
 	}
-	*/
+	
 }

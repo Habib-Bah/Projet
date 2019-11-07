@@ -31,6 +31,7 @@ public abstract class AbstractBusinessManager {
      * @param pDaoProxy           -
      * @param pTransactionManager -
      */
+  /*
     public static void configure(BusinessProxy pBusinessProxy,
                                  DaoProxy pDaoProxy,
                                  TransactionManager pTransactionManager) {
@@ -39,7 +40,7 @@ public abstract class AbstractBusinessManager {
         transactionManager = pTransactionManager;
     }
 
-
+*/
     // ==================== Getters/Setters ====================
 
     /**
@@ -47,16 +48,20 @@ public abstract class AbstractBusinessManager {
      *
      * @return {@link BusinessProxy}
      */
+    
+    /*
     protected BusinessProxy getBusinessProxy() {
         return businessProxy;
     }
 
-
+*/
     /**
      * Renvoie le Proxy d'accès à la couche Consumer-DAO
      *
      * @return {@link DaoProxy}
      */
+   
+    
     protected DaoProxy getDaoProxy() {
         return daoProxy;
     }
@@ -67,20 +72,25 @@ public abstract class AbstractBusinessManager {
      *
      * @return TransactionManager
      */
+    
+    /*
     protected TransactionManager getTransactionManager() {
         return transactionManager;
     }
-
+*/
 
     /**
      * Renvoie un {@link Validator} de contraintes
      *
      * @return Validator
      */
+    
+    
     protected Validator getConstraintValidator() {
         Configuration<?> vConfiguration = Validation.byDefaultProvider().configure();
         ValidatorFactory vFactory = vConfiguration.buildValidatorFactory();
         Validator vValidator = vFactory.getValidator();
         return vValidator;
     }
+    
 }
