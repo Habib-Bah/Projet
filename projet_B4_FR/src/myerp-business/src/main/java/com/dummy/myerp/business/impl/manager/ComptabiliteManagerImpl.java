@@ -588,9 +588,9 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 			statement = connection.createStatement();
 
-			int ecriture_id = 10;
-			int ligne_id = 10;
-			int compte_comptable_numero = 10;
+			int ecriture_id = -5;
+			int ligne_id = -5;
+			int compte_comptable_numero = 401;
 			String libelle = "Test";
 			int debit = 10;
 			int credit = 10;
@@ -675,4 +675,24 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 		}
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteLigneEcritureComptable(String libelle) {
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+
+			String sql = "delete from MYERP.ligne_ecriture_comptable where libelle = '" + libelle + "'";
+			statement.executeQuery(sql);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

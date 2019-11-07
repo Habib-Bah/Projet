@@ -144,11 +144,19 @@ public interface ComptabiliteManager {
     void deleteJComptable(String libelle);
 
     /**
-     * supprime un journal comptable.
+     * supprime une ecriture comptable.
      *
-     * @param libelle du journal
+     * @param reference de l'ecriture
      */
     
     void deleteEcritureComptable(String reference);
+    
+    /**
+     * supprime une ligne comptable.
+     *
+     * @param libelle de la ligne
+     */
+    
+    void deleteLigneEcritureComptable(String libelle);
     
 }
