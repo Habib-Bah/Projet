@@ -1032,4 +1032,40 @@ public class EcritureComptableTest {
 		
 		assertEquals(true, res);
 	}
+	
+	@Test
+	public void testgetByNumeroCompteC() {
+		
+		List<CompteComptable> listeCompteComptable = new ArrayList<>();
+		
+		try {
+
+			Class.forName("org.postgresql.Driver").newInstance();
+			connection = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:9032/db_myerp", "usr_myerp", "myerp");
+
+			statement = connection.createStatement();
+			result = statement.executeQuery("select * from MYERP.compte_comptable");
+
+			while (result.next()) {
+
+				CompteComptable cp = new CompteComptable();
+
+				int numero = result.getInt(1);
+				String libelle = result.getString(2);
+
+				cp.setNumero(numero);
+				cp.setLibelle(libelle);
+
+				listeCompteComptable.add(cp);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		CompteComptable compte = CompteComptable.getByNumero(listeCompteComptable, 411);
+		
+		
+	}
 }
