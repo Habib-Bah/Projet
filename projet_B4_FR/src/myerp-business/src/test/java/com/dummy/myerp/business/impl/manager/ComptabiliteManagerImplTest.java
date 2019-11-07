@@ -143,6 +143,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 
+	/*
 	@Test
 	public void testGetCompteComptable() throws IOException {
 
@@ -154,6 +155,8 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, tailleListe);
 	}
 	
+	
+	
 	@Test
 	public void testGetLigneEC() {
 		
@@ -163,7 +166,7 @@ public class ComptabiliteManagerImplTest {
 		assertEquals(nombreEntite, taille);
 		
 	}
-
+*/
 	int t = 0;
 
 	@Test
