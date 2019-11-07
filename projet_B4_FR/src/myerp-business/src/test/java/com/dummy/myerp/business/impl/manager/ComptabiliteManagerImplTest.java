@@ -359,6 +359,7 @@ public class ComptabiliteManagerImplTest {
 			}
 		}
 		//assertEquals(true, res);
+		
 	}
 /*
 	@Test
