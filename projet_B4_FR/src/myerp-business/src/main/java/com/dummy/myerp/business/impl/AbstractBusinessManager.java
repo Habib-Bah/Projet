@@ -31,7 +31,7 @@ public abstract class AbstractBusinessManager {
      * @param pDaoProxy           -
      * @param pTransactionManager -
      */
-  /*
+  
     public static void configure(BusinessProxy pBusinessProxy,
                                  DaoProxy pDaoProxy,
                                  TransactionManager pTransactionManager) {
@@ -40,7 +40,7 @@ public abstract class AbstractBusinessManager {
         transactionManager = pTransactionManager;
     }
 
-*/
+
     // ==================== Getters/Setters ====================
 
     /**
@@ -49,12 +49,12 @@ public abstract class AbstractBusinessManager {
      * @return {@link BusinessProxy}
      */
     
-    /*
+    
     protected BusinessProxy getBusinessProxy() {
         return businessProxy;
     }
 
-*/
+
     /**
      * Renvoie le Proxy d'accès à la couche Consumer-DAO
      *
@@ -73,11 +73,11 @@ public abstract class AbstractBusinessManager {
      * @return TransactionManager
      */
     
-    /*
+    
     protected TransactionManager getTransactionManager() {
         return transactionManager;
     }
-*/
+
 
     /**
      * Renvoie un {@link Validator} de contraintes
