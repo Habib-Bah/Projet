@@ -1066,6 +1066,5 @@ public class EcritureComptableTest {
 		
 		CompteComptable compte = CompteComptable.getByNumero(listeCompteComptable, 411);
 		
-		
 	}
 }
